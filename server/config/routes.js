@@ -1,9 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const billingCycleController = require("../controllers/BillingCycleController.js");
+const express = require('express');
+const router = express.Router(); 
+   
 
-router.get("/", billingCycleController.get);
-router.get("/:cycleId", billingCycleController.getById);
-router.post("/", billingCycleController.store);
 
-module.exports = router;
+
+
+
+module.exports = router ;
