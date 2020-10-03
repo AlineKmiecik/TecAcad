@@ -171,7 +171,7 @@ Content-Type: application/json
 }
 
 ###RECUPERAR DADOS POR ID
-GET http://localhost:1234/mensalidade/buscar/5f789c3f711a96397463ad0d
+GET http://localhost:1234/mensalidade/buscar/5f78b6c8fe1bf848e0592d83
 
 ### RECUPERAR TODOS
 GET http://localhost:1234/mensalidade/listar 
@@ -181,10 +181,9 @@ GET http://localhost:1234/mensalidade/alterar
 Content-Type: application/json
 
 {
-    "id": "5f7896c62060c644dcef2cf8",
-    "Nome": "Spining",
-    "Descricao": "Aula com bicileta"
+    "id": "5f78b6c8fe1bf848e0592d83",
+    "Data_Mensalidade": "2020-09-02"
 }
 
 ###DELETAR
-GET http://localhost:1234/mensalidade/remover/5f789c3f711a96397463ad0d
+GET http://localhost:1234/mensalidade/remover/5f78b6c8fe1bf848e0592d83
