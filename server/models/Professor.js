@@ -1,5 +1,4 @@
 const mongoose  = require("mongoose");
-const Atividade = require("./Atividade");
 
 const Professor = new mongoose.Schema({
     Nome: {

@@ -11,17 +11,6 @@ const Atividade = new mongoose.Schema({
         type: String,
     },
 
-    Status_Atividade: {
-        type: String,
-        require: [true, "O campo Status_Atividade é obrigatório"],
-        uppercase: true, 
-        enum: ["EM ANDAMENTO", "REALIZADO"],
-    },
-
-    Valor_Atividade:{
-        type: Number
-    },
-
     createdAt: {type: Date, default:Date.now},
 });
 

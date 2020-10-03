@@ -1,8 +1,6 @@
 const mongoose  = require("mongoose");
-const Treino = require("./Treino");
-const Mensalidade = require("./Mensalidade");
 
-const Professor = new mongoose.Schema({
+const Aluno = new mongoose.Schema({
     Nome: {
         type: String,
         require: [true, "O campo Nome é obrigatório"],
@@ -20,9 +18,6 @@ const Professor = new mongoose.Schema({
         uppercase: true, 
         enum: ["PENDENTE", "VALIDO"],
     },
-
-    Treino: [Treino],
-    Mensalidade: [Mensalidade],
 
     createdAt: {type: Date, default:Date.now},
 });

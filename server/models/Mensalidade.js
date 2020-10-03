@@ -1,15 +1,21 @@
 const mongoose  = require("mongoose");
-const Aluno = require("./Aluno");
-const Atividade = require("./Atividade");
 
-const Professor = new mongoose.Schema({
+const Mensalidade = new mongoose.Schema({
     Data_Mensalidade : {
         type: Date, 
         required: [true, "O campo data_mensalidade é obrigatório"],
     },
 
-    Aluno: Aluno,
-    Atividades: [Atividade],
+    Cpf_Aluno:{
+        type: String,
+        require: [ true, "Campo cpf aluno é obrigatório"],
+    },
+    
+    Valor_Mensalidade:{
+        type: Number,
+        require: [true, "Campo valor mensalidade é obrigatório"],
+        min: [0, "Valor mínimo da mensalidade é de 0 reais"],
+    },
 
     createdAt: {type: Date, default:Date.now},
 });

@@ -1,7 +1,6 @@
 const mongoose  = require("mongoose");
-const Atividade = require("./Atividade");
-const Professor = require("./Professor");
-const Aluno = require("./Aluno");
+const Atividade_Treino = require("./Atividade_Treino");
+
 
 const Treino = new mongoose.Schema({
     
@@ -10,10 +9,17 @@ const Treino = new mongoose.Schema({
         required: [true, "O campo data treino é obrigatório"],
     },
 
-    Aluno: Aluno,
-    Professor: Professor,
+    Cpf_Aluno:{
+        type: String,
+        require: [ true, "Campo cpf aluno é obrigatório"],
+    },
 
-    Atividade:[Atividade],
+    Cpf_Professor:{
+        type: String,
+        require: [ true, "Campo cpf Professor é obrigatório"],
+    },
+
+    Atividade:[Atividade_Treino],
 
     createdAt: {type: Date, default:Date.now},
 });
