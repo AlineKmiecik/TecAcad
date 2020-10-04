@@ -1,0 +1,189 @@
+#################  CRUD ATIVIDADE  #######################
+###CADASTRAR 
+POST http://localhost:1234/atividade/cadastrar
+Content-Type: application/json
+
+{
+    "Nome": "aula teste",
+    "Descricao": "dofnasodnfasnidf"
+}
+
+###RECUPERAR DADOS POR ID
+GET http://localhost:1234/atividade/buscar/5f789c3f711a96397463ad0d
+
+### RECUPERAR TODOS
+GET http://localhost:1234/atividade/listar 
+
+### ALTERAR
+GET http://localhost:1234/atividade/alterar
+Content-Type: application/json
+
+{
+    "id": "5f7896c62060c644dcef2cf8",
+    "Nome": "Spining",
+    "Descricao": "Aula com bicileta"
+}
+
+###DELETAR
+GET http://localhost:1234/atividade/remover/5f789c3f711a96397463ad0d
+
+
+
+#################  CRUD PROFESSOR  #######################
+###CADASTRAR 
+POST http://localhost:1234/professor/cadastrar
+Content-Type: application/json
+
+{
+    "Nome": "Jose da silva",
+    "Cpf": "251094"
+}
+
+###RECUPERAR DADOS POR CPF
+GET http://localhost:1234/professor/buscar/251094
+
+### RECUPERAR TODOS
+GET http://localhost:1234/professor/listar 
+
+### ALTERAR
+GET http://localhost:1234/professor/alterar
+Content-Type: application/json
+
+{
+    "id": "5f78a276157e6f0354680350",
+    "Nome": "Josefa",
+    "Cpf": "251094"
+}
+
+###DELETAR
+GET http://localhost:1234/professor/remover/251094
+
+
+
+#################  CRUD TREINO  #######################
+###CADASTRAR 
+POST http://localhost:1234/treino/cadastrar
+Content-Type: application/json
+
+{
+    "Data_Treino": "2020-10-28",
+    "Cpf_Aluno": "321654",
+    "Cpf_Professor": "123456",
+
+    "Atividade": [
+        {
+            "Nome": "Jump",
+            "Descricao": "Aula com cama elastica",
+            "Status_Atividade": "REALIZADO",
+            "Valor_Atividade" : 25
+        },
+        {
+           "Nome": "Musculação biceps",
+            "Descricao": "maquina x",
+            "Status_Atividade": "EM ANDAMENTO",
+            "Valor_Atividade": 15
+        }
+
+    ]
+    
+}
+
+###RECUPERAR DADOS POR ID
+GET http://localhost:1234/treino/buscar/5f78af47d22c4d2020cdd6b8
+
+### RECUPERAR TODOS
+GET http://localhost:1234/treino/listar 
+
+### ALTERAR
+GET http://localhost:1234/treino/alterar
+Content-Type: application/json
+
+{
+    "id": "5f78af47d22c4d2020cdd6b8",
+    "Data_Treino": "2020-10-28",
+    "Cpf_Aluno": "321654",
+    "Cpf_Professor": "123456",
+
+    "Atividade": [
+        {
+            "Nome": "Jump aa",
+            "Descricao": "Aula com cama elastica aa",
+            "Status_Atividade": "REALIZADO",
+            "Valor_Atividade" : 10
+        },
+        {
+           "Nome": "Musculação biceps",
+            "Descricao": "maquina x",
+            "Status_Atividade": "EM ANDAMENTO",
+            "Valor_Atividade": 15
+        }
+
+    ]
+    
+}
+
+###DELETAR
+GET http://localhost:1234/treino/remover/5f78af47d22c4d2020cdd6b8
+
+
+#################  CRUD ALUNO  #######################
+###CADASTRAR 
+POST http://localhost:1234/aluno/cadastrar
+Content-Type: application/json
+
+{
+    "Nome": "Aline Kmiecik",
+    "Cpf": "10126712913",
+    "Status Matricula": "VALIDO"
+}
+
+###RECUPERAR DADOS POR CPF
+GET http://localhost:1234/aluno/buscar/251094
+
+### RECUPERAR TODOS
+GET http://localhost:1234/aluno/listar 
+
+### ALTERAR
+GET http://localhost:1234/aluno/alterar
+Content-Type: application/json
+
+{
+    "id": "5f78b472c0b0723dcc9619e0",
+    "Nome": "Josefa",
+    "Cpf": "251094"
+}
+
+###DELETAR
+GET http://localhost:1234/aluno/remover/251094
+
+
+
+
+#################  CRUD MENSALIDADE  #######################
+###CADASTRAR 
+POST http://localhost:1234/mensalidade/cadastrar
+Content-Type: application/json
+
+{
+    "Data_Mensalidade": "2020-02-02",
+    "Cpf_Aluno": "123456",
+    "Valor_Mensalidade": 97.30
+}
+
+###RECUPERAR DADOS POR ID
+GET http://localhost:1234/mensalidade/buscar/5f78b6c8fe1bf848e0592d83
+
+### RECUPERAR TODOS
+GET http://localhost:1234/mensalidade/listar 
+
+### ALTERAR
+GET http://localhost:1234/mensalidade/alterar
+Content-Type: application/json
+
+{
+    "id": "5f78b6c8fe1bf848e0592d83",
+    "Data_Mensalidade": "2020-09-02"
+}
+
+###DELETAR
+GET http://localhost:1234/mensalidade/remover/5f78b6c8fe1bf848e0592d83
