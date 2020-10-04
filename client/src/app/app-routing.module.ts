@@ -8,16 +8,15 @@ import { ListAlunoComponent } from './views/Aluno/list-aluno/list-aluno.componen
 
 const routes: Routes = [
   {
-    path: '', 
+    path: 'aluno/list', 
     component: ListAlunoComponent
   },
   {
-    path: 'Aluno/create', 
+    path: 'aluno/create', 
     component: CreateAlunoComponent
   },
   {
-    //quando for essa rota com um parametro ele vai para o createCycleComponent
-    path: 'Aluno/create/:cpf', 
+    path: 'aluno/create/:cpf', 
     component: CreateAlunoComponent
   }
 ];
