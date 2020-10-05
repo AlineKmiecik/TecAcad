@@ -1,23 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ListAlunoComponent } from './views/Aluno/list-aluno/list-aluno.component';
-import { CreateAlunoComponent } from './views/Aluno/create-aluno/create-aluno.component';
+import { ListAlunoComponent } from './views/aluno/list-aluno/list-aluno.component';
+import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
+import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
+import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
+import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListAlunoComponent,
-    CreateAlunoComponent
+    ListProfessorComponent,
+    ListAtividadeComponent,
+    ListMensalidadeComponent,
+    ListTreinoComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     HttpClientModule,
-    FormsModule 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

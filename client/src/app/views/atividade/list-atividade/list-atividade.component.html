@@ -1,0 +1,16 @@
+
+<div>
+    <table>
+        <tr>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let Atividade of Atividades">
+          <!-- usar variável global  -->
+          <!-- {{ nome da variavel do arq. .ts}}  -->
+          <td>{{Atividade.Nome}}</td>
+          <td>{{ Atividade.Descricao }}</td>
+        </tr>
+      </table>
+    </div>

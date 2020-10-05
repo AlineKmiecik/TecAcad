@@ -1,24 +1,39 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateAlunoComponent } from './views/Aluno/create-aluno/create-aluno.component';
-import { ListAlunoComponent } from './views/Aluno/list-aluno/list-aluno.component';
+import { ListAlunoComponent } from './views/aluno/list-aluno/list-aluno.component';
+import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
+import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
+import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
+import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
 
 
 //Auto import
 
 const routes: Routes = [
   {
+    path: '', 
+    component: ListAlunoComponent
+  },
+  {
     path: 'aluno/list', 
     component: ListAlunoComponent
   },
   {
-    path: 'aluno/create', 
-    component: CreateAlunoComponent
+    path: 'professor/list', 
+    component: ListProfessorComponent
   },
   {
-    path: 'aluno/create/:cpf', 
-    component: CreateAlunoComponent
-  }
+    path: 'atividade/list', 
+    component: ListAtividadeComponent
+  },
+  {
+    path: 'mensalidade/list', 
+    component: ListMensalidadeComponent
+  },
+  {
+    path: 'treino/list', 
+    component: ListTreinoComponent
+  },
 ];
 
 @NgModule({

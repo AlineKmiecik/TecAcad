@@ -1,8 +1,6 @@
-export class Aluno{
+export class Aluno {
     _id?: string;
     Nome: string;
     Cpf: string;
-    
-    CreatedAt?: Date;
-
-}
+    createdAt?: Date;
+  }

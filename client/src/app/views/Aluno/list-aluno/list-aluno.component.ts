@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Aluno } from 'src/app/models/Aluno';
-import { AcademiaService } from './../../../services/academia.service';
+import { Router } from "@angular/router";
+import { Aluno } from './../../../models/Aluno';
+import { AlunoService } from './../../../services/aluno.service';
 
 @Component({
   selector: 'app-list-aluno',
@@ -12,14 +12,13 @@ export class ListAlunoComponent implements OnInit {
 
   Alunos: Aluno[] = [];
 
-  constructor(private router: Router, private AcademiaService: AcademiaService) { }
+  constructor(private router: Router, private AlunoService: AlunoService) { }
 
   ngOnInit(): void {
-      this.AcademiaService.listAluno().subscribe((Aluno) => {
-        this.Alunos = Aluno;
-        console.log(Aluno);
-      });
-
+    this.AlunoService.list().subscribe((lista) => {
+      console.log(lista);
+      this.Alunos = lista; 
+    });
   }
 
 }

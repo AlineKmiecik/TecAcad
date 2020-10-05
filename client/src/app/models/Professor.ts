@@ -1,7 +1,6 @@
-export class Professor{
+export class Professor {
     _id?: string;
     Nome: string;
     Cpf: string;
-    CreatedAt?: Date;
-
-}
+    createdAt?: Date;
+  }

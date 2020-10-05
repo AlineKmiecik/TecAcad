@@ -1,1 +1,17 @@
-<p>list-aluno works!</p>
+<div>
+  <table>
+      <tr>
+        <th>Nome</th>
+        <th>Data matricula</th>
+        <th>cpf</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let Aluno of Alunos">
+        <!-- usar variável global  -->
+        <!-- {{ nome da variavel do arq. .ts}}  -->
+        <td>{{Aluno.Nome}}</td>
+        <td>{{Aluno.createdAt | date: "dd/MM/yyyy"}}</td>
+        <td>{{ Aluno.Cpf }}</td>
+      </tr>
+    </table>
+  </div>

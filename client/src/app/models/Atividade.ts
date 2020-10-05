@@ -1,7 +1,6 @@
-export class Atividade{
+export class Atividade {
     _id?: string;
     Nome: string;
     Descricao: string;
-    CreatedAt?: Date;
-
-}
+    createdAt?: Date;
+  }

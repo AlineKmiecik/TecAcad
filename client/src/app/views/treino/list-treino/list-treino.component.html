@@ -1,0 +1,17 @@
+<div>
+    <table>
+        <tr>
+          <th>Data Treino</th>
+          <th>Aluno</th>
+          <th>Professor</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let Treino of Treinos">
+          <!-- usar variável global  -->
+          <!-- {{ nome da variavel do arq. .ts}}  -->
+          <td>{{Treino.Data_Treino| date: "dd/MM/yyyy"}}</td>
+          <td>{{ Treino.Cpf_Aluno }}</td>
+          <td>{{ Treino.Cpf_Professor }}</td>
+        </tr>
+      </table>
+</div>
