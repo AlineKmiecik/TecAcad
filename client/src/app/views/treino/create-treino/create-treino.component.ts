@@ -13,15 +13,15 @@ export class CreateTreinoComponent implements OnInit {
 
   Treino: Treino ={
     Data_Treino: new Date(),
-    Cpf_Aluno: "10126712913",
-    Cpf_Professor: "123456",
+    Cpf_Aluno: "",
+    Cpf_Professor: "",
 
     Atividade: [
         {
             "Nome": "teste",  
-            "Descricao": "Aula com cama elastica",
-            "Status_Atividade": "REALIZADO",
-            "Valor_Atividade" : 25
+            "Descricao": "",
+            "Status_Atividade": "",
+            "Valor_Atividade" : 0
         },
     ]
   }

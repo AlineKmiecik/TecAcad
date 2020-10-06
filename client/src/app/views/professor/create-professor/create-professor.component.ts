@@ -12,8 +12,8 @@ export class CreateProfessorComponent implements OnInit {
   constructor(private service: ProfessorService) { }
 
   Professor: Professor ={
-      Nome: "Jose da silva",
-      Cpf: "251094"
+      Nome: "",
+      Cpf: ""
   
   }
 

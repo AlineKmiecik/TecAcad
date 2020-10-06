@@ -10,8 +10,8 @@ import { Atividade } from 'src/app/models/Atividade';
 })
 export class CreateAtividadeComponent implements OnInit {
   Atividade: Atividade ={
-    Nome: "Aula de jump teste",
-    Descricao: "aula com cama elastica"
+    Nome: "",
+    Descricao: ""
 
 }
 

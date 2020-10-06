@@ -10,10 +10,10 @@ import { AlunoService } from 'src/app/services/aluno.service';
 export class CreateAlunoComponent implements OnInit {
 
   Aluno: Aluno ={
-    Nome: "Eugenia ferreira ",
-    Cpf: "072123654"
+    Nome: "",
+    Cpf: ""
 
-}
+  }
 
   constructor(private service: AlunoService) { }
 
