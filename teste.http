@@ -132,8 +132,8 @@ POST http://localhost:1234/aluno/cadastrar
 Content-Type: application/json
 
 {
-    "Nome": "Aline Kmiecik",
-    "Cpf": "10126712913",
+    "Nome": "Paulo Kmiecik",
+    "Cpf": "07206435971",
     "Status Matricula": "VALIDO"
 }
 
