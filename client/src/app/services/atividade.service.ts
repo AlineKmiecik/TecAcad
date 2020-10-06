@@ -13,4 +13,8 @@ export class AtividadeService {
   list(): Observable<Atividade[]> {
     return this.http.get<Atividade[]>('http://localhost:1234/atividade/listar'); 
   }
+
+  create(Atividade: Atividade): Observable<Atividade>{
+    return this.http.post<Atividade>('http://localhost:1234/atividade/cadastrar', Atividade);
+  }
 }

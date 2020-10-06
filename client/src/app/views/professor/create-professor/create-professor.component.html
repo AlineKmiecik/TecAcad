@@ -1,0 +1,20 @@
+<h2>CADASTRAR PROFESSOR</h2>
+
+<label>Nome</label><br>  
+<input 
+    type="text" 
+    placeholder="Nome completo"
+    name="Nome_Professor"
+    [(ngModel)]="Professor.Nome"
+/> <br>
+
+<label>Cpf</label><br>  
+<input 
+    type="text" 
+    placeholder="Cpf"
+    name="Cpf_Professor"
+    [(ngModel)]="Professor.Cpf"
+/> <br>
+
+
+<button (click)="create()">Cadastrar</button>

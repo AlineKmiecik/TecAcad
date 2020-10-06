@@ -1,0 +1,20 @@
+<h2>CADASTRAR ALUNO</h2>
+
+<label>Nome</label><br>  
+<input 
+    type="text" 
+    placeholder="Nome completo"
+    name="Nome_Aluno"
+    [(ngModel)]="Aluno.Nome"
+/> <br>
+
+<label>Cpf</label><br>  
+<input 
+    type="text" 
+    placeholder="Cpf"
+    name="Cpf_Aluno"
+    [(ngModel)]="Aluno.Cpf"
+/> <br>
+
+
+<button (click)="create()">Cadastrar</button>

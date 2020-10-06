@@ -5,11 +5,16 @@ import { ListProfessorComponent } from './views/professor/list-professor/list-pr
 import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
 import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
 import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
+import { CreateTreinoComponent } from './views/treino/create-treino/create-treino.component';
+import { CreateAlunoComponent } from './views/aluno/create-aluno/create-aluno.component';
+import { CreateProfessorComponent } from './views/professor/create-professor/create-professor.component';
+import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
 
 
 //Auto import
 
 const routes: Routes = [
+  //rotas para aluno
   {
     path: '', 
     component: ListAlunoComponent
@@ -19,20 +24,40 @@ const routes: Routes = [
     component: ListAlunoComponent
   },
   {
+    path: 'aluno/create', 
+    component: CreateAlunoComponent
+  },
+  //rotas para professor
+  {
     path: 'professor/list', 
     component: ListProfessorComponent
   },
+  {
+    path: 'professor/create', 
+    component: CreateProfessorComponent
+  },
+  //rotas para atividade
   {
     path: 'atividade/list', 
     component: ListAtividadeComponent
   },
   {
+    path: 'atividade/create', 
+    component: CreateAtividadeComponent
+  },
+  //rotas para mensalidade
+  {
     path: 'mensalidade/list', 
     component: ListMensalidadeComponent
   },
+  //rotas para treino
   {
     path: 'treino/list', 
     component: ListTreinoComponent
+  },
+  {
+    path: 'treino/create', 
+    component: CreateTreinoComponent
   },
 ];
 

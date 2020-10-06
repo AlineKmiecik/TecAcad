@@ -13,4 +13,9 @@ export class TreinoService {
   list(): Observable<Treino[]> {
     return this.http.get<Treino[]>('http://localhost:1234/treino/listar'); 
   }
+
+  create(Treino: Treino): Observable<Treino>{
+    return this.http.post<Treino>('http://localhost:1234/treino/cadastrar', Treino);
+  }
+
 }

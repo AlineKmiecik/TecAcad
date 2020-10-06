@@ -13,4 +13,8 @@ export class ProfessorService {
   list(): Observable<Professor[]> {
     return this.http.get<Professor[]>('http://localhost:1234/professor/listar');
   }
+
+  create(Professor: Professor): Observable<Professor>{
+    return this.http.post<Professor>('http://localhost:1234/professor/cadastrar', Professor);
+  }
 } 
