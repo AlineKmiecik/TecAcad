@@ -1,17 +1,19 @@
 <div>
     <table>
         <tr>
-          <th>Nome</th>
-          <th>Data Admissão</th>
-          <th>cpf</th>
-          <th></th>
+            <th>Nome</th>
+            <th>Data Admissão</th>
+            <th>cpf</th>
+            <th></th>
         </tr>
         <tr *ngFor="let Professor of Professores">
-          <!-- usar variável global  -->
-          <!-- {{ nome da variavel do arq. .ts}}  -->
-          <td>{{Professor.Nome}}</td>
-          <td>{{Professor.createdAt | date: "dd/MM/yyyy"}}</td>
-          <td>{{ Professor.Cpf }}</td>
+            <!-- usar variável global  -->
+            <!-- {{ nome da variavel do arq. .ts}}  -->
+            <td>{{Professor.Nome}}</td>
+            <td>{{Professor.createdAt | date: "dd/MM/yyyy"}}</td>
+            <td>{{ Professor.Cpf }}</td>
         </tr>
-      </table>
-    </div>
+    </table>
+</div>
+
+<app-footer></app-footer>

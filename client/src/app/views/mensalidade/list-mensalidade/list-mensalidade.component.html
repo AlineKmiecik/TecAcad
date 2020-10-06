@@ -1,17 +1,18 @@
 <div>
     <table>
         <tr>
-          <th>Data Mensalidade</th>
-          <th>Valor</th>
-          <th>Aluno</th>
-          <th></th>
+            <th>Data Mensalidade</th>
+            <th>Valor</th>
+            <th>Aluno</th>
+            <th></th>
         </tr>
         <tr *ngFor="let Mensalidade of Mensalidades">
-          <!-- usar variável global  -->
-          <!-- {{ nome da variavel do arq. .ts}}  -->
-          <td>{{Mensalidade.createdAt | date: "dd/MM/yyyy"}}</td>
-          <td>{{ Mensalidade.Valor_Mensalidade }}</td>
-          <td>{{ Mensalidade.Cpf_Aluno }}</td>
+            <!-- usar variável global  -->
+            <!-- {{ nome da variavel do arq. .ts}}  -->
+            <td>{{Mensalidade.createdAt | date: "dd/MM/yyyy"}}</td>
+            <td>{{ Mensalidade.Valor_Mensalidade }}</td>
+            <td>{{ Mensalidade.Cpf_Aluno }}</td>
         </tr>
-      </table>
-    </div>
+    </table>
+</div>
+<app-footer></app-footer>
