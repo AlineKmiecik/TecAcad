@@ -11,6 +11,7 @@ import { ListProfessorComponent } from './views/professor/list-professor/list-pr
 import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
 import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
 import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
+import { CreateTreinoComponent } from './views/treino/create-treino/create-treino.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ListTreinoComponent } from './views/treino/list-treino/list-treino.comp
     ListProfessorComponent,
     ListAtividadeComponent,
     ListMensalidadeComponent,
-    ListTreinoComponent
+    ListTreinoComponent,
+    CreateTreinoComponent
   ],
   imports: [
     BrowserModule,
