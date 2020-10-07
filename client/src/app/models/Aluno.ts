@@ -4,4 +4,4 @@ export class Aluno {
     Cpf: string;
     Status_Matricula: string;
     createdAt?: Date;
-  }
+  } 
