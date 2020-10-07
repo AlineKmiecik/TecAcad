@@ -1,12 +1,22 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<app-navbar></app-navbar>
+
+<br>
 <h2>CADASTRAR ALUNO</h2>
 <br>
-<label>Nome</label><br>
-<input type="text" placeholder="Nome completo" name="Nome_Aluno" [(ngModel)]="Aluno.Nome" /> <br>
 
-<label>Cpf</label><br>
-<input type="text" placeholder="Cpf" name="Cpf_Aluno" [(ngModel)]="Aluno.Cpf" /> <br>
-
-
-<button (click)="create()">Cadastrar</button>
+<form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nome completo: </label><br>
+      <input type="text" name="Nome_Aluno" [(ngModel)]="Aluno.Nome" /> <br>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">CPF: </label><br>
+      <input type="text" name="Cpf_Aluno" [(ngModel)]="Aluno.Cpf" />
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="create()">Enviar</button>
+  </form>
 
 <app-footer></app-footer>
