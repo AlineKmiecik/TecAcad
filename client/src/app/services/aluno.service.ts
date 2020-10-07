@@ -17,4 +17,13 @@ export class AlunoService {
   create(Aluno: Aluno): Observable<Aluno>{
     return this.http.post<Aluno>('http://localhost:1234/aluno/cadastrar', Aluno);
   }
+
+  update(Aluno: Aluno): Observable<Aluno>{
+    return this.http.post<Aluno>('http://localhost:1234/aluno/alterar', Aluno);
+  }
+
+  
+  Find(Cpf_Aluno: string): Observable<String> {
+    return this.http.get<string>('http://localhost:1234/aluno/buscar/${Cpf_Aluno}'); 
+  }
 }

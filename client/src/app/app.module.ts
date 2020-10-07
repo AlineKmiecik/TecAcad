@@ -18,6 +18,7 @@ import { CreateAlunoComponent } from './views/aluno/create-aluno/create-aluno.co
 import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
 import { FooterComponent } from './views/pages/footer/footer.component';
 import { HomeComponent } from './views/home/home.component';
+import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HomeComponent } from './views/home/home.component';
     CreateAlunoComponent,
     CreateAtividadeComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    UpdateAlunoComponent
   ],
   imports: [
     BrowserModule,
