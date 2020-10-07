@@ -22,9 +22,7 @@ export class CreateAlunoComponent implements OnInit {
   }
 
   create(): void {
-    // console.log(this.cycle.date);
     this.service.create(this.Aluno).subscribe((Aluno) => {
-      console.log(Aluno);
     });
   }
 
