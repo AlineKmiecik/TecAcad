@@ -1,12 +1,18 @@
+<app-navbar></app-navbar>
+<br>
 <h2>CADASTRAR PROFESSOR</h2>
+<br>
 
-<label>Nome</label><br>
-<input type="text" placeholder="Nome completo" name="Nome_Professor" [(ngModel)]="Professor.Nome" /> <br>
-
-<label>Cpf</label><br>
-<input type="text" placeholder="Cpf" name="Cpf_Professor" [(ngModel)]="Professor.Cpf" /> <br>
-
-
-<button (click)="create()">Cadastrar</button>
+<form>
+    <div class="form-group">
+      <label for="nome">Nome: </label><br>
+      <input type="text" name="Nome_Professor" [(ngModel)]="Professor.Nome" /> <br>
+    </div>
+    <div class="form-group">
+      <label for="cpf">CPF: </label><br>
+      <input type="text" name="Cpf_Professor" [(ngModel)]="Professor.Cpf" /> <br>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="create()">Cadastrar</button>
+  </form>
 
 <app-footer></app-footer>
