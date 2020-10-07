@@ -27,7 +27,6 @@ export class ListTreinoComponent implements OnInit {
   open(content, Atividade) { 
     this.Atividades = Atividade;
     this.modalService.open(content, Atividade);
-    console.log(Atividade);
   } 
 
 }
