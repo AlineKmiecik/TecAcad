@@ -20,6 +20,7 @@ import { FooterComponent } from './views/pages/footer/footer.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/pages/login/login.component';
 import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.co
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
