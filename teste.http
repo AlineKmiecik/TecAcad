@@ -132,9 +132,10 @@ POST http://localhost:1234/aluno/cadastrar
 Content-Type: application/json
 
 {
-    "Nome": "Paulo Kmiecik",
-    "Cpf": "07206435971",
-    "Status Matricula": "VALIDO"
+    "Nome": "TESTE TESTE",
+    "Cpf": "123",
+    "Status_Matricula": "VALIDO"
+    
 }
 
 ###RECUPERAR DADOS POR CPF
@@ -148,8 +149,8 @@ GET http://localhost:1234/aluno/alterar
 Content-Type: application/json
 
 {
-    "id": "5f78b472c0b0723dcc9619e0",
-    "Nome": "Josefa",
+    "id": "5f7df7b602208a35e47e3e53",
+    "Nome": "teste 2",
     "Cpf": "251094"
 }
 
