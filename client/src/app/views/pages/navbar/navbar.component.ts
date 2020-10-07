@@ -49,4 +49,8 @@ export class NavbarComponent implements OnInit {
     this.location.back();
   }
 
+  signOutClicked() {
+    //TODO implementar
+  }
+
 }
