@@ -23,7 +23,7 @@ export class AlunoService {
   }
 
   
-  Find(Cpf_Aluno: string): Observable<String> {
-    return this.http.get<string>('http://localhost:1234/aluno/buscar/${Cpf_Aluno}'); 
+  Find(Cpf_Aluno: string): Observable<Aluno> {
+    return this.http.get<Aluno>('http://localhost:1234/aluno/buscar/${Cpf_Aluno}'); 
   }
 }

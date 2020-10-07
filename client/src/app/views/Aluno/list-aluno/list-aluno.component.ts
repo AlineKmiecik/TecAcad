@@ -16,7 +16,7 @@ export class ListAlunoComponent implements OnInit {
 
   ngOnInit(): void {
     this.AlunoService.list().subscribe((lista) => {
-      console.log(lista);
+      //console.log(lista);
       this.Alunos = lista; 
     });
   }

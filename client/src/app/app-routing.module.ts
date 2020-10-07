@@ -29,7 +29,7 @@ const routes: Routes = [
     component: CreateAlunoComponent
   },
   {
-    path: 'aluno/update:Cpf_Aluno', 
+    path: 'aluno/update/:Cpf_Aluno', 
     component: UpdateAlunoComponent
   },
   {
