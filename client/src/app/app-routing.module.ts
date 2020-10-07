@@ -10,6 +10,7 @@ import { CreateTreinoComponent } from './views/treino/create-treino/create-trein
 import { CreateAlunoComponent } from './views/aluno/create-aluno/create-aluno.component';
 import { CreateProfessorComponent } from './views/professor/create-professor/create-professor.component';
 import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
+import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.component';
 
 //Auto import
 
@@ -27,6 +28,15 @@ const routes: Routes = [
     path: 'aluno/create', 
     component: CreateAlunoComponent
   },
+  {
+    path: 'aluno/update:Cpf_Aluno', 
+    component: UpdateAlunoComponent
+  },
+  {
+    path: 'aluno/update', 
+    component: UpdateAlunoComponent
+  },
+
   //rotas para professor
   {
     path: 'professor/list', 

@@ -19,6 +19,7 @@ import { CreateAtividadeComponent } from './views/atividade/create-atividade/cre
 import { FooterComponent } from './views/pages/footer/footer.component';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/pages/login/login.component';
+import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoginComponent } from './views/pages/login/login.component';
     CreateAtividadeComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    UpdateAlunoComponent
   ],
   imports: [
     BrowserModule,

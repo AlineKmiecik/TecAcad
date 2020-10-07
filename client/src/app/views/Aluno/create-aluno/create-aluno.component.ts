@@ -11,7 +11,8 @@ export class CreateAlunoComponent implements OnInit {
 
   Aluno: Aluno ={
     Nome: "",
-    Cpf: ""
+    Cpf: "",
+    Status_Matricula: ""
 
   }
 

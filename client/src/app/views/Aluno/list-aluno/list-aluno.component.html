@@ -4,6 +4,9 @@
 <app-navbar></app-navbar>
 
 <br>
+
+<button (click)="navigateToMensalidadeList()">Mensalidades</button>
+
 <div>
     <table class="table">
         <thead class="thead-dark">
@@ -12,6 +15,8 @@
             <th scope="col">Nome</th>
             <th scope="col">Data Matrícula</th>
             <th scope="col">CPF</th>
+            <th scope="col">STATUS MATRICULA</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +25,12 @@
             <td>{{Aluno.Nome}}</td>
             <td>{{Aluno.createdAt | date: "dd/MM/yyyy"}}</td>
             <td>{{ Aluno.Cpf }}</td>
+            <td>{{ Aluno.Status_Matricula }}</td>
+
+            <td>
+              <a routerLink="/aluno/update/{{Aluno.Cpf}}">Alterar</a>
+            </td>
+            
           </tr>
         </tbody>
       </table>
