@@ -1,3 +1,4 @@
+import { HomeComponent } from './views/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListAlunoComponent } from './views/aluno/list-aluno/list-aluno.component';
@@ -10,14 +11,13 @@ import { CreateAlunoComponent } from './views/aluno/create-aluno/create-aluno.co
 import { CreateProfessorComponent } from './views/professor/create-professor/create-professor.component';
 import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
 
-
 //Auto import
 
 const routes: Routes = [
   //rotas para aluno
   {
     path: '', 
-    component: ListAlunoComponent
+    component: HomeComponent
   },
   {
     path: 'aluno/list', 

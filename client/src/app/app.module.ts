@@ -17,6 +17,7 @@ import { CreateProfessorComponent } from './views/professor/create-professor/cre
 import { CreateAlunoComponent } from './views/aluno/create-aluno/create-aluno.component';
 import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
 import { FooterComponent } from './views/pages/footer/footer.component';
+import { HomeComponent } from './views/home/home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FooterComponent } from './views/pages/footer/footer.component';
     CreateProfessorComponent,
     CreateAlunoComponent,
     CreateAtividadeComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
