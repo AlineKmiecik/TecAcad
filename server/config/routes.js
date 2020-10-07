@@ -73,7 +73,7 @@ router.get("/aluno/buscar/:Cpf", AlunoController.getByCpf);
 router.get("/aluno/listar", AlunoController.get);
 
 //Alterar – http://localhost:1234/aluno/alterar 
-router.get("/aluno/alterar", AlunoController.Alter);
+router.post("/aluno/alterar", AlunoController.Alter);
 
 //http://localhost:1234/aluno/remover/crm
 router.get("/aluno/remover/:Cpf", AlunoController.delete);
