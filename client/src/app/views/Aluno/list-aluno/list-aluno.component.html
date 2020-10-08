@@ -2,38 +2,44 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 <app-navbar></app-navbar>
+<div class="m-5">
+    <div class="row my-3">
+        <div class="col-10">
+            <h1>Listar Alunos</h1>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-outline-primary" (click)="navigateToMensalidadeList()"> 
+        Mensalidades 
+      </button>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Data Matrícula</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">Situação</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Aluno of Alunos">
+                    <th scope="row">1</th>
+                    <td>{{Aluno.Nome}}</td>
+                    <td>{{Aluno.createdAt | date: "dd/MM/yyyy"}}</td>
+                    <td>{{ Aluno.Cpf }}</td>
+                    <td>{{ Aluno.Status_Matricula }}</td>
 
-<br>
+                    <td>
+                        <a routerLink="/aluno/update/{{Aluno.Cpf}}">Alterar</a>
+                    </td>
 
-<button (click)="navigateToMensalidadeList()">Mensalidades</button>
-
-<div>
-    <table class="table">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Data Matrícula</th>
-            <th scope="col">CPF</th>
-            <th scope="col">STATUS MATRICULA</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let Aluno of Alunos">
-            <th scope="row">1</th>
-            <td>{{Aluno.Nome}}</td>
-            <td>{{Aluno.createdAt | date: "dd/MM/yyyy"}}</td>
-            <td>{{ Aluno.Cpf }}</td>
-            <td>{{ Aluno.Status_Matricula }}</td>
-
-            <td>
-              <a routerLink="/aluno/update/{{Aluno.Cpf}}">Alterar</a>
-            </td>
-            
-          </tr>
-        </tbody>
-      </table>
-
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 <app-footer></app-footer>

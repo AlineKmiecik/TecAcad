@@ -6,23 +6,22 @@
 <div>
     <table class="table">
         <thead class="thead-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Data Admissão</th>
-            <th scope="col">CPF</th>
-          </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Data Admissão</th>
+                <th scope="col">CPF</th>
+            </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let Professor of Professores">
-            <th scope="row">1</th>
-            <td>{{Professor.Nome}}</td>
-            <td>{{Professor.createdAt | date: "dd/MM/yyyy"}}</td>
-            <td>{{ Professor.Cpf }}</td>
-          </tr>
+            <tr *ngFor="let Professor of Professores">
+                <th scope="row">1</th>
+                <td>{{Professor.Nome}}</td>
+                <td>{{Professor.createdAt | date: "dd/MM/yyyy"}}</td>
+                <td>{{ Professor.Cpf }}</td>
+            </tr>
         </tbody>
-      </table>
-      
+    </table>
 </div>
 
 <app-footer></app-footer>
