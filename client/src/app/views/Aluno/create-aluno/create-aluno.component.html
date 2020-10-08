@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <br>
-<h2>CADASTRAR ALUNO</h2>
+<h2>Cadastrar Aluno</h2>
 <br>
 
 <div class="row">
@@ -17,13 +17,13 @@
             </div>
             <div class="form-group">
                 <label for="status">Status: </label><br>
-                <select name="status" class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="Aluno.Status_Matricula">
-                  <option selected>Selecione...</option>
+                <select name="status" class="mdb-select custom-select md-form mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="Aluno.Status_Matricula">
+                  <option value="" disabled selected>Selecione...</option>
                   <option value="VALIDO">Válido</option>
                   <option value="PENDENTE">Pendente</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" (click)="create()">Enviar</button>
+            <button type="submit" class="btn btn-primary" (click)="create()">Cadastrar</button>
         </form>
     </div>
     <div class="col-9">
