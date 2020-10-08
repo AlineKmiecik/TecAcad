@@ -16,12 +16,12 @@
                 <input class="form-control mr-sm-2" type="text" name="Cpf_Aluno" [(ngModel)]="Aluno.Cpf" />
             </div>
             <div class="form-group">
-                <label for="cpf">Status: </label><br>
-                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <label for="status">Status: </label><br>
+                <select name="status" class="custom-select mr-sm-2" id="inlineFormCustomSelect" [(ngModel)]="Aluno.Status_Matricula">
                   <option selected>Selecione...</option>
                   <option value="VALIDO">Válido</option>
-                  <option value="INVALIDO">Inválido</option>
-              </select>
+                  <option value="PENDENTE">Pendente</option>
+                </select>
             </div>
             <button type="submit" class="btn btn-primary" (click)="create()">Enviar</button>
         </form>
