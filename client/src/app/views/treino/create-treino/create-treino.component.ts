@@ -31,9 +31,7 @@ export class CreateTreinoComponent implements OnInit {
 
 
   create(): void {
-    // console.log(this.cycle.date);
     this.service.create(this.Treino).subscribe((Treino) => {
-      console.log(Treino);
     });
   }
 

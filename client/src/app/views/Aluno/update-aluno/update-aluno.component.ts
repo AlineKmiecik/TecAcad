@@ -22,15 +22,12 @@ export class UpdateAlunoComponent implements OnInit {
 
   ngOnInit(): void {
     this.AlunoService.Find(this.Aluno.Cpf).subscribe((Aluno) => {
-      console.log(Aluno);
       this.Aluno = Aluno; 
     });
   }
 
   Update(): void {
-    // console.log(this.cycle.date);
     this.AlunoService.update(this.Aluno).subscribe((Aluno) => {
-      console.log(Aluno);
     });
   }
 

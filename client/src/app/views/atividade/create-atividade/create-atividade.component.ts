@@ -21,9 +21,7 @@ export class CreateAtividadeComponent implements OnInit {
   }
 
   create(): void {
-    // console.log(this.cycle.date);
     this.service.create(this.Atividade).subscribe((Atividade) => {
-      console.log(Atividade);
     });
   }
 

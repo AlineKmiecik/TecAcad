@@ -16,7 +16,6 @@ export class ListProfessorComponent implements OnInit {
 
   ngOnInit(): void {
     this.ProfessorService.list().subscribe((lista) => {
-      console.log(lista);
       this.Professores = lista; 
     });
 

@@ -22,9 +22,7 @@ export class CreateProfessorComponent implements OnInit {
   }
 
   create(): void {
-    // console.log(this.cycle.date);
     this.service.create(this.Professor).subscribe((Professor) => {
-      console.log(Professor);
     });
   }
 

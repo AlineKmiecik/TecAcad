@@ -16,7 +16,6 @@ export class ListMensalidadeComponent implements OnInit {
 
   ngOnInit(): void {
     this.MensalidadeService.list().subscribe((lista) => {
-      console.log(lista);
       this.Mensalidades = lista; 
     });
   }
