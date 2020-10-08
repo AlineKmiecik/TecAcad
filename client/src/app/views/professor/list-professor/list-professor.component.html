@@ -1,27 +1,29 @@
 <app-navbar></app-navbar>
-<br>
-
-<h1>Listar Professor</h1>
-
-<div>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Data Admissão</th>
-                <th scope="col">CPF</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let Professor of Professores">
-                <th scope="row">1</th>
-                <td>{{Professor.Nome}}</td>
-                <td>{{Professor.createdAt | date: "dd/MM/yyyy"}}</td>
-                <td>{{ Professor.Cpf }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="m-5">
+    <div class="row my-3">
+        <div class="col-10">
+            <h1>Lista de Professores</h1>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Data Admissão</th>
+                    <th scope="col">CPF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Professor of Professores">
+                    <th scope="row">1</th>
+                    <td>{{Professor.Nome}}</td>
+                    <td>{{Professor.createdAt | date: "dd/MM/yyyy"}}</td>
+                    <td>{{ Professor.Cpf }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-
 <app-footer></app-footer>

@@ -1,31 +1,38 @@
-<app-navbar></app-navbar><br>
-<h1>Listar Treinos</h1>
-<div>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Data Treino</th>
-                <th scope="col">Aluno</th>
-                <th scope="col">Professor</th>
-                <th scope="col">Atividades</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let treino of Treinos">
-                <th scope="row">1</th>
-                <td>{{ treino.Data_Treino| date: "dd/MM/yyyy"}}</td>
-                <td>{{ treino.Cpf_Aluno }}</td>
-                <td>{{ treino.Cpf_Professor }}</td>
-                <td>
-                    <button class="btn btn-outline-primary" (click)="open(content, treino.Atividade)"> 
-                        Detalhes 
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<app-navbar></app-navbar>
+<div class="m-5">
+    <div class="row my-3">
+        <div class="col-10">
+            <h1>Listar Treinos</h1>
+        </div>
+    </div>
+    <div>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Data Treino</th>
+                    <th scope="col">Aluno</th>
+                    <th scope="col">Professor</th>
+                    <th scope="col">Atividades</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let treino of Treinos">
+                    <th scope="row">1</th>
+                    <td>{{ treino.Data_Treino| date: "dd/MM/yyyy"}}</td>
+                    <td>{{ treino.Cpf_Aluno }}</td>
+                    <td>{{ treino.Cpf_Professor }}</td>
+                    <td>
+                        <button class="btn btn-outline-primary" (click)="open(content, treino.Atividade)"> 
+                            Detalhes 
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
 <ng-template #content #Atividade let-modal>
     <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">
