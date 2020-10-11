@@ -14,7 +14,6 @@
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Data Matrícula</th>
                     <th scope="col">CPF</th>
@@ -24,14 +23,13 @@
             </thead>
             <tbody>
                 <tr *ngFor="let Aluno of Alunos">
-                    <th scope="row">1</th>
-                    <td>{{Aluno.Nome}}</td>
+                    <td>{{Aluno.nome}}</td>
                     <td>{{Aluno.createdAt | date: "dd/MM/yyyy"}}</td>
-                    <td>{{ Aluno.Cpf }}</td>
-                    <td>{{ Aluno.Status_Matricula }}</td>
+                    <td>{{ Aluno.cpf }}</td>
+                    <td>{{ Aluno.status }}</td>
 
                     <td>
-                        <a routerLink="/aluno/update/{{Aluno.Cpf}}">Alterar</a>
+                        <a routerLink="/aluno/update/{{Aluno.cpf}}">Alterar</a>
                     </td>
 
                 </tr>

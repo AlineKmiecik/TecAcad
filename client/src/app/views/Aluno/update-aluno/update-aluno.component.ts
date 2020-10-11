@@ -12,16 +12,16 @@ export class UpdateAlunoComponent implements OnInit {
 
   Aluno: Aluno ={
     _id: "",
-    Nome: "",
-    Cpf: "",
-    Status_Matricula: ""
+    nome: "",
+    cpf: "",
+    status: ""
 
   }
 
   constructor(private router: Router, private AlunoService: AlunoService) { }
 
   ngOnInit(): void {
-    this.AlunoService.Find(this.Aluno.Cpf).subscribe((Aluno) => {
+    this.AlunoService.Find(this.Aluno.cpf).subscribe((Aluno) => {
       this.Aluno = Aluno; 
     });
   }

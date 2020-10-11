@@ -20,4 +20,8 @@ export class LoginComponent implements OnInit {
     //TODO implementar
   }
 
+  logInAdministradorClicked(){
+    //TODO implementar
+  }
+
 }

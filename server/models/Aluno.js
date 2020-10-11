@@ -1,25 +1,23 @@
-const mongoose  = require("mongoose");
+const mongoose = require("mongoose");
 
 const Aluno = new mongoose.Schema({
-    Nome: {
+    nome: {
         type: String,
-        require: [true, "O campo Nome é obrigatório"],
-
+        require: [true, "O campo Nome é obrigatório"]
     },
 
-    Cpf: {
+    cpf: {
         type: String,
-        require: [true, "O campo Cpf é obrigatório"],
+        require: [true, "O campo Cpf é obrigatório"]
     },
 
-    Status_Matricula: {
+    status: {
         type: String,
-        require: [true, "O campo Status_Matricula é obrigatório"],
-        uppercase: true, 
-        enum: ["PENDENTE", "VALIDO"],
+        require: [true, "O campo Status é obrigatório"],
+        enum: ["Ativo", "Inativo"]
     },
 
-    createdAt: {type: Date, default:Date.now},
+    createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Aluno", Aluno);
