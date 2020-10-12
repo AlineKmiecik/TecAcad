@@ -15,7 +15,7 @@ router.get("/cadastros/usuario/listar/:type", UserController.getByType);
 router.get("/cadastros/usuario/:document", UserController.delete);
 
 
-router.get("/users/authenticate", LoginController.authenticate);
+router.post("/users/authenticate/", LoginController.authenticate);
 
 //----------------------------ROTAS ATIVIDADES ------------------------
 //http://localhost:1234/atividade/cadastrar

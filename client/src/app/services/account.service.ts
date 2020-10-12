@@ -24,21 +24,24 @@ export class AccountService {
         return this.userSubject.value;
     }
 
-    login(username, password) {
+    login(username, password): Observable<User> {
+        console.log("account.service.in")
+        console.log(username +"/"+ password)
         return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
-            .pipe(map(user => {
-                // Guarda os dados do usuario e o token jwt no local storage pra manter o user logado entre os carregamentos
-                localStorage.setItem('user', JSON.stringify(user));
-                this.userSubject.next(user);
-                return user;
-            }));
+        .pipe(map(user => {
+            // Guarda os dados do usuario e o token jwt no local storage pra manter o user logado entre os carregamentos
+            localStorage.setItem('user', JSON.stringify(user));
+            this.userSubject.next(user);
+            console.log("account.service.out")
+            return user;
+        }))  ;
     }
 
     logout() {
         // remove o user do local storage e seta null
         localStorage.removeItem('user');
         this.userSubject.next(null);
-        this.router.navigate(['/account/login']);
+        this.router.navigate(['']);
     }
 
     register(user: User) {
