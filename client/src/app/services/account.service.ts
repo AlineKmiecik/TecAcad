@@ -11,28 +11,37 @@ import { User } from '../models/User';
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
-
+    
     constructor(
         private router: Router,
         private http: HttpClient
-    ) {
-        this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
-        this.user = this.userSubject.asObservable();
-    }
+        ) {
+            this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
+            this.user = this.userSubject.asObservable();
+        }
 
     public get userValue(): User {
         return this.userSubject.value;
     }
 
+    public get isAluno(): boolean{
+        return this.userSubject.value.type == "Aluno";
+    } 
+
+    public get isProfessor(): boolean{
+        return this.userSubject.value.type == "Professor";
+    } 
+
+    public get isStaff(): boolean{
+        return this.userSubject.value.type == "Staff";
+    } 
+
     login(username, password): Observable<User> {
-        console.log("account.service.in")
-        console.log(username +"/"+ password)
         return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
         .pipe(map(user => {
             // Guarda os dados do usuario e o token jwt no local storage pra manter o user logado entre os carregamentos
             localStorage.setItem('user', JSON.stringify(user));
             this.userSubject.next(user);
-            console.log("account.service.out")
             return user;
         }))  ;
     }

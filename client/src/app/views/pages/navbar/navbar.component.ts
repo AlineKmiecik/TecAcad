@@ -12,9 +12,11 @@ import { AccountService } from '../../../services/account.service';
 export class NavbarComponent implements OnInit {
 
   user: User;
+  isAluno: boolean;
 
   constructor(private router: Router, private location: Location, private accountService: AccountService) {
     this.user = this.accountService.userValue;
+    this.isAluno = this.accountService.isAluno;
   }
 
   ngOnInit(): void {

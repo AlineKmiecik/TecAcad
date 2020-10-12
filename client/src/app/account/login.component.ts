@@ -41,13 +41,12 @@ onSubmit() {
     }
     
     this.loading = true;
-    console.log("log/pass: " + this.f.username.value + "/" + this.f.password.value)
     this.accountService.login(this.f.username.value, this.f.password.value)
         .pipe(first())
         .subscribe({
             next: () => {
                 // pega a URL de retorno ou seta a Home
-                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/treino/create';
                 console.log("ReturnURL: " + returnUrl)
                 console.log("RetornoStorage: " + localStorage.getItem('user'))
                 this.router.navigateByUrl(returnUrl);

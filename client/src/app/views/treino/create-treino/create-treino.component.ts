@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Treino } from 'src/app/models/Treino';
 import { TreinoService } from 'src/app/services/treino.service';
+import { User } from '../../../models/User';
+import { AccountService } from '../../../services/account.service';
 
 @Component({
   selector: 'app-create-treino',
@@ -9,7 +11,11 @@ import { TreinoService } from 'src/app/services/treino.service';
 })
 export class CreateTreinoComponent implements OnInit {
 
-  constructor(private service: TreinoService) { }
+  user: User;
+
+  constructor(private service: TreinoService, private accountService: AccountService) {
+    this.user = this.accountService.userValue;
+  }
 
   Treino: Treino ={
     Data_Treino: new Date(),

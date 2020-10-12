@@ -1,37 +1,8 @@
 <app-navbar></app-navbar>
-
-<h2>CADASTRAR TREINO</h2>
-
-<label>Data Treino</label><br>
-<input type="date" class="form-control" placeholder="Data do treino" name="Data_Treino" [(ngModel)]="Treino.Data_Treino" /> <br>
-
-<label>Cpf do Aluno</label><br>
-<input type="text" class="form-control" placeholder="Cpf do aluno" name="Cpf_Aluno" [(ngModel)]="Treino.Cpf_Aluno" /> <br>
-
-<label>Cpf do professor</label><br>
-<input type="text" class="form-control" placeholder="Cpf do professor" name="Cpf_Professor" [(ngModel)]="Treino.Cpf_Professor" /> <br>
-
-<H4>ATIVIDADE</H4>
-
-<label>Nome</label><br>
-<input type="text" class="form-control" placeholder="Nome da atividade" name="Atividade_Nome" [(ngModel)]="Treino.Atividade" /> <br>
-
-<label>Descricao</label><br>
-<input type="text" class="form-control" placeholder="Descricao da atividade" name="Atividade_Descricao" [(ngModel)]="Treino.Atividade" /> <br>
-
-<label>Status</label><br>
-<input type="text" class="form-control" placeholder="Status da atividade" name="Atividade_Status" [(ngModel)]="Treino.Atividade" /> <br>
-
-<button (click)="create()">Cadastrar</button>
-
-<app-footer></app-footer>
-
-<!-- Novos estilos. Aplicar depois de confirmar o funcionamento do codigo acima
-<app-navbar></app-navbar>
 <div class="m-5">
     <div class="row my-3">
         <div class="col-10">
-            <h1>Cadastrar Treino</h1>
+            <h1>Cadastre seu treino, {{user.firstname}}:</h1>
         </div>
     </div>
 
@@ -67,4 +38,4 @@
     </div>
 
 </div>
-<app-footer></app-footer>-->
+<app-footer></app-footer>
