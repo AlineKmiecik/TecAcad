@@ -1,3 +1,5 @@
+/*
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Aluno } from './../../../models/Aluno';
@@ -25,3 +27,5 @@ export class ListAlunoComponent implements OnInit {
   }
 
 }
+
+*/

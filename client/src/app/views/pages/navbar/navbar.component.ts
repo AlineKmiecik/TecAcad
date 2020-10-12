@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Location } from '@angular/common';
+import { User } from '../../../models/User';
+import { AccountService } from '../../../services/account.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,7 +11,11 @@ import { Location } from '@angular/common';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router, private location: Location) { }
+  user: User;
+
+  constructor(private router: Router, private location: Location, private accountService: AccountService) {
+    this.user = this.accountService.userValue;
+  }
 
   ngOnInit(): void {
   }
@@ -49,8 +55,8 @@ export class NavbarComponent implements OnInit {
     this.location.back();
   }
 
-  signOutClicked() {
-    //TODO implementar
-  }
+  logout() {
+    this.accountService.logout();
+}
 
 }

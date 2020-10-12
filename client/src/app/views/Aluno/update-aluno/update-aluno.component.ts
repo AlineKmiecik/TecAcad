@@ -1,3 +1,4 @@
+/*
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Aluno } from 'src/app/models/Aluno';
@@ -32,3 +33,5 @@ export class UpdateAlunoComponent implements OnInit {
   }
 
 }
+
+*/

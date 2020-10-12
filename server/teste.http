@@ -1,0 +1,29 @@
+### CADASTRAR
+POST http://localhost:1234/cadastros/usuario
+Content-Type: application/json
+
+{
+    "firstname": "U_firstName",
+    "lastname": "U_lastName",
+    "document": "P2",
+    "type": "Professor",
+    "username": "u.u",
+    "password": "11",
+    "status": "Ativo"
+}
+
+### LISTAR
+GET http://localhost:1234/cadastros/usuario/listar 
+
+
+### LISTAR POR TIPO
+GET http://localhost:1234/cadastros/usuario/listar/Aluno
+###
+GET http://localhost:1234/cadastros/usuario/listar/Professor
+###
+GET http://localhost:1234/cadastros/usuario/listar/Staff
+
+
+### APAGAR
+GET http://localhost:1234/cadastros/usuario/S2
+

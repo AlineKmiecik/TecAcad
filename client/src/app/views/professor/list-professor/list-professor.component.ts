@@ -1,3 +1,4 @@
+/*
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Professor } from './../../../models/Professor';
@@ -22,3 +23,5 @@ export class ListProfessorComponent implements OnInit {
   }
 
 }
+
+*/

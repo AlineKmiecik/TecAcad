@@ -1,25 +1,28 @@
-import { HomeComponent } from './views/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListAlunoComponent } from './views/aluno/list-aluno/list-aluno.component';
-import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
+//import { ListAlunoComponent } from './views/aluno/list-aluno/list-aluno.component';
+//import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
 import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
 import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
 import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
 import { CreateTreinoComponent } from './views/treino/create-treino/create-treino.component';
-import { CreateAlunoComponent } from './views/aluno/create-aluno/create-aluno.component';
-import { CreateProfessorComponent } from './views/professor/create-professor/create-professor.component';
 import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
-import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.component';
+//import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.component';
+import { AuthGuard } from './helpers/auth.guard';
 
-//Auto import
+const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 
 const routes: Routes = [
   //rotas para aluno
   {
-    path: '', 
+    path: '', canActivate: [AuthGuard],
     component: HomeComponent
   },
+  { path: 'account',
+    loadChildren: accountModule
+  },
+  /*
   {
     path: 'aluno/list', 
     component: ListAlunoComponent
@@ -45,7 +48,7 @@ const routes: Routes = [
   {
     path: 'professor/create', 
     component: CreateProfessorComponent
-  },
+  }, */
   //rotas para atividade
   {
     path: 'atividade/list', 
@@ -69,6 +72,7 @@ const routes: Routes = [
     path: 'treino/create', 
     component: CreateTreinoComponent
   },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
