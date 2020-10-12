@@ -8,6 +8,7 @@ import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/l
 import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
 import { CreateTreinoComponent } from './views/treino/create-treino/create-treino.component';
 import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
+import { LoginComponent } from './account/login.component';
 //import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.component';
 import { AuthGuard } from './helpers/auth.guard';
 
@@ -16,7 +17,7 @@ const accountModule = () => import('./account/account.module').then(x => x.Accou
 const routes: Routes = [
   //rotas para aluno
   {
-    path: '', canActivate: [AuthGuard],
+    path: '', 
     component: HomeComponent
   },
   { path: 'account',
@@ -72,7 +73,11 @@ const routes: Routes = [
     path: 'treino/create', 
     component: CreateTreinoComponent
   },
-  { path: '**', redirectTo: '' }
+  {
+    path: 'dd', 
+    component: LoginComponent
+  },
+  //{ path: '**', redirectTo: '' }
 ];
 
 @NgModule({

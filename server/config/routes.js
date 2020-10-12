@@ -6,12 +6,16 @@ const TreinoController = require('../controllers/TreinoController.js');
 //const AlunoController = require('../controllers/_AlunoController.js');
 const MensalidadeController = require('../controllers/MensalidadeController.js');
 const UserController = require('../controllers/UserController');
+const LoginController = require('../controllers/LoginController');
 
 // DGorges
 router.post("/cadastros/usuario", UserController.store);
 router.get("/cadastros/usuario/listar", UserController.get);
 router.get("/cadastros/usuario/listar/:type", UserController.getByType);
 router.get("/cadastros/usuario/:document", UserController.delete);
+
+
+router.get("/users/authenticate", LoginController.authenticate);
 
 //----------------------------ROTAS ATIVIDADES ------------------------
 //http://localhost:1234/atividade/cadastrar

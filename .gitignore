@@ -16,6 +16,7 @@ bower_components/
 
 # IDEs and editors
 .idea/
+.DS_Store
 
 # misc
 .sass-cache/

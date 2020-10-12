@@ -35,14 +35,11 @@ get f() { return this.form.controls; }
 
 onSubmit() {
     this.submitted = true;
-
-    // reset alerts on submit
-    //this.alertService.clear();
-
+    
     if (this.form.invalid) {
         return;
     }
-
+    
     this.loading = true;
     this.accountService.login(this.f.username.value, this.f.password.value)
         .pipe(first())
