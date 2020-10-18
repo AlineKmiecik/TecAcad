@@ -13,10 +13,14 @@ export class NavbarComponent implements OnInit {
 
   user: User;
   isAluno: boolean;
+  isProfessor: boolean;
+  isStaff: boolean;
 
   constructor(private router: Router, private location: Location, private accountService: AccountService) {
     this.user = this.accountService.userValue;
     this.isAluno = this.accountService.isAluno;
+    this.isProfessor = this.accountService.isProfessor;
+    this.isStaff= this.accountService.isStaff;
   }
 
   ngOnInit(): void {

@@ -9,31 +9,31 @@ import { User } from '../models/User';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
-    private userSubject: BehaviorSubject<User>;
-    public user: Observable<User>;
+    private user: User;
     
     constructor(
         private router: Router,
         private http: HttpClient
         ) {
-            this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('user')));
-            this.user = this.userSubject.asObservable();
+            var parsed = JSON.parse(localStorage.getItem('user'));
+            if(parsed != null){
+                this.user = parsed[0];}
         }
 
     public get userValue(): User {
-        return this.userSubject.value;
+        return this.user;
     }
 
     public get isAluno(): boolean{
-        return this.userSubject.value.type == "Aluno";
+        return this.user.type == "Aluno";
     } 
 
     public get isProfessor(): boolean{
-        return this.userSubject.value.type == "Professor";
+        return this.user.type == "Professor";
     } 
 
     public get isStaff(): boolean{
-        return this.userSubject.value.type == "Staff";
+        return this.user.type == "Staff";
     } 
 
     login(username, password): Observable<User> {
@@ -41,15 +41,15 @@ export class AccountService {
         .pipe(map(user => {
             // Guarda os dados do usuario e o token jwt no local storage pra manter o user logado entre os carregamentos
             localStorage.setItem('user', JSON.stringify(user));
-            this.userSubject.next(user);
+            this.user = user;
             return user;
         }))  ;
     }
 
     logout() {
         // remove o user do local storage e seta null
-        localStorage.removeItem('user');
-        this.userSubject.next(null);
+        //localStorage.removeItem('user'); TODO Remover comentario
+        //this.user = null; TODO Remover comentario
         this.router.navigate(['']);
     }
 
@@ -69,13 +69,14 @@ export class AccountService {
         return this.http.put(`${environment.apiUrl}/users/${id}`, params)
             .pipe(map(x => {
                 // update do usuario no local storage
-                if (id == this.userValue.id) {
+                if (id == this.userValue._id) {
                     // update no local storage
                     const user = { ...this.userValue, ...params };
                     localStorage.setItem('user', JSON.stringify(user));
 
                     // publica o update do user aos inscritos
-                    this.userSubject.next(user);
+                    //this.userSubject.next(user);
+                    this.user = user;
                 }
                 return x;
             }));
@@ -85,7 +86,7 @@ export class AccountService {
         return this.http.delete(`${environment.apiUrl}/users/${id}`)
             .pipe(map(x => {
                 // auto logout se o usuario for apagado
-                if (id == this.userValue.id) {
+                if (id == this.userValue._id) {
                     this.logout();
                 }
                 return x;

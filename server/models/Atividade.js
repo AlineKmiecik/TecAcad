@@ -1,17 +1,26 @@
-const mongoose  = require("mongoose");
+const mongoose = require("mongoose");
 
 const Atividade = new mongoose.Schema({
-    Nome: {
+    name: {
         type: String,
-        require: [true, "O campo Nome é obrigatório"],
-
+        require: [true, "O campo Nome é obrigatório"]
     },
 
-    Descricao: {
-        type: String,
+    description: {
+        type: String
     },
 
-    createdAt: {type: Date, default:Date.now},
+    concluded: {
+        type: Boolean,
+        default: false
+    },
+
+    price: {
+        type: Number,
+        default: 0
+    },
+
+    createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Atividade", Atividade);
+module.exports = Atividade;

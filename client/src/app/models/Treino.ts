@@ -1,10 +1,12 @@
-import { Atividade_Treino } from "./Atividade_Treino";
+import { Atividade } from "./Atividade";
+import { User } from "./User";
 
 export class Treino {
     _id?: string;
-    Data_Treino: Date;
-    Cpf_Aluno: string;
-    Cpf_Professor: string;
-    Atividade: [Atividade_Treino];
+    date: Date;
+    student: User;
+    teacher: User;
+    activities: [Atividade];
+    concluded: boolean;
     createdAt?: Date;
   }

@@ -1,27 +1,33 @@
-const mongoose  = require("mongoose");
-const Atividade_Treino = require("./Atividade_Treino");
+const mongoose = require("mongoose");
+const atividade = require("./Atividade");
+const user = require("./User");
 
 
 const Treino = new mongoose.Schema({
-    
-    Data_Treino : {
-        type: Date, 
-        required: [true, "O campo data treino é obrigatório"],
+
+    date: {
+        type: Date,
+        required: [true, "O campo Data do Treino é obrigatório"],
     },
 
-    Cpf_Aluno:{
-        type: String,
-        require: [ true, "Campo cpf aluno é obrigatório"],
+    student: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Student'
     },
 
-    Cpf_Professor:{
-        type: String,
-        require: [ true, "Campo cpf Professor é obrigatório"],
+    teacher: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Teacher'
     },
 
-    Atividade:[Atividade_Treino],
+    activities: [atividade],
 
-    createdAt: {type: Date, default:Date.now},
+    concluded: {
+        type: Boolean,
+        default: false
+    },
+
+    createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Treino", Treino);

@@ -1,5 +1,4 @@
 const Treino = require("../models/Treino.js");
-const TreinoSchema = require("../models/Treino.js");
 
 class TreinoController {
     async store(req, res) {

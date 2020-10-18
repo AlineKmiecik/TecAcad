@@ -1,23 +1,29 @@
-const mongoose  = require("mongoose");
+const mongoose = require("mongoose");
+const user = require("./User");
 
 const Mensalidade = new mongoose.Schema({
-    Data_Mensalidade : {
-        type: Date, 
-        required: [true, "O campo data_mensalidade é obrigatório"],
+    date: {
+        type: Date,
+        required: [true, "O campo Data é obrigatório"]
     },
 
-    Cpf_Aluno:{
-        type: String,
-        require: [ true, "Campo cpf aluno é obrigatório"],
+    student: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Student'
     },
-    
-    Valor_Mensalidade:{
+
+    price: {
         type: Number,
-        require: [true, "Campo valor mensalidade é obrigatório"],
-        min: [0, "Valor mínimo da mensalidade é de 0 reais"],
+        require: [true, "Campo Valor é obrigatório"],
+        min: [0, "Valor mínimo da mensalidade é de 0 reais"]
     },
 
-    createdAt: {type: Date, default:Date.now},
+    payed: {
+        type: Boolean,
+        default: false
+    },
+
+    createdAt: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model("Mensalidade", Mensalidade);

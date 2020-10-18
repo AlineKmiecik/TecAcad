@@ -1,31 +1,32 @@
 const express = require('express');
 const router = express.Router();
-const AtividadeController = require('../controllers/AtividadeController.js');
-//const ProfessorController = require('../controllers/ProfessorController.js');
+const AtividadeController = require('../controllers/AtividadeController');
 const TreinoController = require('../controllers/TreinoController.js');
-//const AlunoController = require('../controllers/_AlunoController.js');
 const MensalidadeController = require('../controllers/MensalidadeController.js');
 const UserController = require('../controllers/UserController');
 const LoginController = require('../controllers/LoginController');
 
-// DGorges
+// Usuarios
+router.get("/usuario/listar", UserController.get);
+router.get("/usuario/listar/:type", UserController.getByType);
 router.post("/cadastros/usuario", UserController.store);
-router.get("/cadastros/usuario/listar", UserController.get);
-router.get("/cadastros/usuario/listar/:type", UserController.getByType);
-router.get("/cadastros/usuario/:document", UserController.delete);
+router.get("/cadastros/usuario/apagar/:document", UserController.delete);
 
-
+//Autenticacao
 router.post("/users/authenticate/", LoginController.authenticate);
 
 //----------------------------ROTAS ATIVIDADES ------------------------
-//http://localhost:1234/atividade/cadastrar
-router.post("/atividade/cadastrar", AtividadeController.store);
+//router.post("/cadastros/atividade", AtividadeController.store);
+router.get("/listar/atividade", AtividadeController.get);
+
+
+
+
 
 //http://localhost:1234/atividade/buscar/id
 router.get("/atividade/buscar/:ID", AtividadeController.getById);
 
 //http://localhost:1234/atividade/listar 
-router.get("/atividade/listar", AtividadeController.get);
 
 //Alterar – http://localhost:1234/atividade/alterar 
 router.get("/atividade/alterar", AtividadeController.Alter);
@@ -53,14 +54,14 @@ router.get("/atividade/remover/:ID", AtividadeController.delete);
 
 
 //----------------------------ROTAS TREINO ------------------------
-//http://localhost:1234/treino/cadastrar
-router.post("/treino/cadastrar", TreinoController.store);
+router.post("/cadastros/treino", TreinoController.store);
+router.get("/listar/treino", TreinoController.get);
 
 //http://localhost:1234/treino/buscar/id
 router.get("/treino/buscar/:ID", TreinoController.getById);
 
+//http://localhost:1234/treino/cadastrar
 //http://localhost:1234/treino/listar 
-router.get("/treino/listar", TreinoController.get);
 
 //Alterar – http://localhost:1234/treino/alterar 
 router.get("/treino/alterar", TreinoController.Alter);

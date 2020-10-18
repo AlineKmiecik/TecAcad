@@ -1,6 +1,8 @@
 export class Atividade {
     _id?: string;
-    Nome: string;
-    Descricao: string;
+    name: string;
+    description: string;
+    concluded: boolean;
+    price: number;
     createdAt?: Date;
   }

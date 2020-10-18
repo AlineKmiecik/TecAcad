@@ -1,7 +1,10 @@
+import { User } from "./User";
+
 export class Mensalidade {
     _id?: string;
-    Data_Mensalidade: Date;
-    Cpf_Aluno: string;
-    Valor_Mensalidade: number;
+    date: Date;
+    student: User;
+    price: number;
+    payed: boolean;
     createdAt?: Date;
   }
