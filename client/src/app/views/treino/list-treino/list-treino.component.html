@@ -19,11 +19,11 @@
             <tbody>
                 <tr *ngFor="let treino of Treinos">
                     <th scope="row">1</th>
-                    <td>{{ treino.Data_Treino| date: "dd/MM/yyyy"}}</td>
-                    <td>{{ treino.Cpf_Aluno }}</td>
-                    <td>{{ treino.Cpf_Professor }}</td>
+                    <td>{{ treino.date| date: "dd/MM/yyyy"}}</td>
+                    <td>{{ treino.student.firstname }}</td>
+                    <td>{{ treino.teacher }}</td>
                     <td>
-                        <button class="btn btn-outline-primary" (click)="open(content, treino.Atividade)"> 
+                        <button class="btn btn-outline-primary" (click)="open(content, treino.activities)"> 
                             Detalhes 
                         </button>
                     </td>
@@ -42,7 +42,7 @@
     <div class="modal-body">
         <tr *ngFor="let atividade of Atividades">
             <th scope="row"> - </th>
-            <td>{{ atividade.Descricao }}</td>
+            <td>{{ atividade.description }}</td>
         </tr>
     </div>
     <div class="modal-footer">

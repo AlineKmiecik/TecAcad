@@ -1,6 +1,6 @@
 ### --- USER ---
 ### CADASTRAR
-POST http://localhost:1234/cadastros/usuario
+POST http://localhost:1234/cadastro/usuario
 Content-Type: application/json
 
 {
@@ -25,23 +25,22 @@ GET http://localhost:1234/usuario/listar/Professor
 ###
 GET http://localhost:1234/usuario/listar/Staff
 
+### BUSCAR POR ID
+GET http://localhost:1234/usuario/listar//5f8c4854bf3f4b0416f5f5e0
 
 ### APAGAR
-GET http://localhost:1234/cadastros/usuario/apagar/P2
+GET http://localhost:1234/cadastro/usuario/apagar/P2
 
 //----------------------------------------------------------------------------------------------------------------
 ### --- TREINO ---
 ### CADASTRAR TREINO
-POST http://localhost:1234/cadastros/treino
+POST http://localhost:1234/cadastro/treino
 Content-Type: application/json
 
 {
     "date": "2020-10-19",
-
     "student": "5f8c4854bf3f4b0416f5f5e0",
-
     "teacher": "5f8c4873bf3f4b0416f5f5e1",
-
     "activities": [
         {
         "name": "1AtividadeTeste",
@@ -62,3 +61,19 @@ Content-Type: application/json
 
 ### LISTAR
 GET http://localhost:1234/listar/treino
+
+//----------------------------------------------------------------------------------------------------------------
+### --- MENSALIDADE ---
+### CADASTRAR MENSALIDADE
+POST http://localhost:1234/cadastro/mensalidade
+Content-Type: application/json
+
+{
+    "date": "2020-10-19",
+    "student": "5f8c4854bf3f4b0416f5f5e0",
+    "price": 5,
+    "payed": false
+}
+
+### LISTAR
+GET http://localhost:1234/listar/mensalidade

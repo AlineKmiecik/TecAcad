@@ -1,24 +1,26 @@
-/*
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { Aluno } from './../../../models/Aluno';
-import { AlunoService } from './../../../services/aluno.service';
+import { User } from './../../../models/User';
+import { StudentService } from './../../../services/student.service';
 
 @Component({
   selector: 'app-list-aluno',
   templateUrl: './list-aluno.component.html',
   styleUrls: ['./list-aluno.component.css']
 })
+
 export class ListAlunoComponent implements OnInit {
 
-  Alunos: Aluno[] = [];
+  Students: User[] = [];
 
-  constructor(private router: Router, private AlunoService: AlunoService) { }
+  constructor(
+    private router: Router,
+    private StudentService: StudentService)
+    { }
 
   ngOnInit(): void {
-    this.AlunoService.list().subscribe((lista) => {
-      this.Alunos = lista; 
+    this.StudentService.list().subscribe((lista) => {
+      this.Students = lista; 
     });
   }
 
@@ -27,5 +29,3 @@ export class ListAlunoComponent implements OnInit {
   }
 
 }
-
-*/

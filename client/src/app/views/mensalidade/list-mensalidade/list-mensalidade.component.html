@@ -19,8 +19,8 @@
                 <tr *ngFor="let mensalidade of Mensalidades">
                     <th scope="row">1</th>
                     <td>{{ mensalidade.createdAt | date: "dd/MM/yyyy"}}</td>
-                    <td>{{ mensalidade.Valor_Mensalidade }}</td>
-                    <td>{{ mensalidade.Cpf_Aluno }}</td>
+                    <td>{{ mensalidade.price }}</td>
+                    <td>{{ mensalidade.student }}</td>
                 </tr>
             </tbody>
         </table>

@@ -4,14 +4,14 @@
 <br>
 <form>
     <div class="form-group">
-      <label for="nome">Nome: </label><br>
-      <input type="text" placeholder="Nome da atividade" name="Nome_Atividade" [(ngModel)]="Atividade.Nome" /> <br>
+        <label for="nome">Nome: </label><br>
+        <input type="text" placeholder="Nome da atividade" name="Nome_Atividade" [(ngModel)]="Atividade.name" /> <br>
     </div>
     <div class="form-group">
-      <label for="cpf">Descrição: </label><br>
-      <input type="text" placeholder="Descricao" name="Descricao_Atividade" [(ngModel)]="Atividade.Descricao" /> <br>
+        <label for="cpf">Descrição: </label><br>
+        <input type="text" placeholder="Descricao" name="Descricao_Atividade" [(ngModel)]="Atividade.description" /> <br>
     </div>
     <button type="submit" class="btn btn-primary" (click)="create()">Cadastrar</button>
-  </form>
+</form>
 
 <app-footer></app-footer>

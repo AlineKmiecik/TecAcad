@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser'
 import { Router } from "@angular/router";
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Observable, Subject } from 'rxjs';
 import { Treino } from './../../../models/Treino';
 import { Atividade } from './../../../models/Atividade';
+import { User } from './../../../models/User';
 import { TreinoService } from './../../../services/treino.service';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { StudentService } from './../../../services/student.service';
 
 @Component({
   selector: 'app-list-treino',
@@ -13,17 +17,34 @@ import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 export class ListTreinoComponent implements OnInit {
 
   Treinos: Treino[] = [];
+  treino: Treino;
+  student: Observable<User>;
 
-  constructor(private router: Router, private TreinoService: TreinoService,  private modalService: NgbModal) { }
+  constructor(
+    private router: Router,
+    private treinoService: TreinoService,
+    private modalService: NgbModal,
+    private studentService: StudentService) { }
+    
 
   ngOnInit(): void {
-    this.TreinoService.list().subscribe((lista) => {
-      this.Treinos = lista; 
+    this.treinoService.list().subscribe((lista) => {
+
+      var listaDeTreinos: Treino[];
+
+      
+      lista.forEach((value) => {
+        value.student = new User();
+        this.student = this.studentService.find(value.student._id);
+        value.student = this.student;
+        this.Treinos.push(value);
+        
+        
+      })
     });
   }
 
   Atividades: Atividade[] = [];
-  
   open(content, Atividade) { 
     this.Atividades = Atividade;
     this.modalService.open(content, Atividade);

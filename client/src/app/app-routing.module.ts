@@ -1,7 +1,7 @@
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-//import { ListAlunoComponent } from './views/aluno/list-aluno/list-aluno.component';
+import { ListAlunoComponent } from './views/Aluno/list-aluno/list-aluno.component';
 //import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
 import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
 import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
@@ -23,11 +23,11 @@ const routes: Routes = [
   { path: 'account',
     loadChildren: accountModule
   },
-  /*
   {
-    path: 'aluno/list', 
+    path: 'list/student', 
     component: ListAlunoComponent
   },
+  /*
   {
     path: 'aluno/create', 
     component: CreateAlunoComponent
@@ -66,7 +66,7 @@ const routes: Routes = [
   },
   //rotas para treino
   {
-    path: 'treino/list', 
+    path: 'list/treino', 
     component: ListTreinoComponent
   },
   {

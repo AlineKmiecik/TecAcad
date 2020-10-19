@@ -30,8 +30,8 @@ class UserController {
         res.status(200).json(result);
     }
 
-    async getByDocument(req, res) {
-        var result = await user.findOne({ document: req.params.document });
+    async getById(req, res) {
+        var result = await user.findOne({ _id: req.params.id });
         res.status(200).json(result);
     }
 

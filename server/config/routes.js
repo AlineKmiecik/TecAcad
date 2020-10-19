@@ -9,8 +9,9 @@ const LoginController = require('../controllers/LoginController');
 // Usuarios
 router.get("/usuario/listar", UserController.get);
 router.get("/usuario/listar/:type", UserController.getByType);
-router.post("/cadastros/usuario", UserController.store);
-router.get("/cadastros/usuario/apagar/:document", UserController.delete);
+router.get("/usuario/listar//:id", UserController.getById);
+router.post("/cadastro/usuario", UserController.store);
+router.get("/cadastro/usuario/apagar/:document", UserController.delete);
 
 //Autenticacao
 router.post("/users/authenticate/", LoginController.authenticate);
@@ -19,12 +20,17 @@ router.post("/users/authenticate/", LoginController.authenticate);
 //router.post("/cadastros/atividade", AtividadeController.store);
 router.get("/listar/atividade", AtividadeController.get);
 
+//----------------------------ROTAS TREINO ------------------------
+router.post("/cadastro/treino", TreinoController.store);
+router.get("/listar/treino", TreinoController.get);
 
+//----------------------------ROTAS MENSALIDADE ------------------------
+router.post("/cadastro/mensalidade", MensalidadeController.store);
+router.get("/listar/mensalidade", MensalidadeController.get);
 
-
-
-//http://localhost:1234/atividade/buscar/id
-router.get("/atividade/buscar/:ID", AtividadeController.getById);
+//----------------------------ROTAS ALUNO ------------------------
+router.post("/Zlist/student", MensalidadeController.store);
+router.get("/Zlist/student/:id", AtividadeController.getById);
 
 //http://localhost:1234/atividade/listar 
 
@@ -53,9 +59,7 @@ router.get("/atividade/remover/:ID", AtividadeController.delete);
 //router.get("/professor/remover/:Cpf", ProfessorController.delete);
 
 
-//----------------------------ROTAS TREINO ------------------------
-router.post("/cadastros/treino", TreinoController.store);
-router.get("/listar/treino", TreinoController.get);
+
 
 //http://localhost:1234/treino/buscar/id
 router.get("/treino/buscar/:ID", TreinoController.getById);
@@ -89,15 +93,13 @@ module.exports = router;
 //router.get("/aluno/remover/:Cpf", AlunoController.delete);
 
 
-//----------------------------ROTAS MENSALIDADE ------------------------
-//http://localhost:1234/mensalidade/cadastrar
-router.post("/mensalidade/cadastrar", MensalidadeController.store);
+
 
 //http://localhost:1234/mensalidade/buscar/id
 router.get("/mensalidade/buscar/:ID", MensalidadeController.getById);
 
 //http://localhost:1234/mensalidade/listar 
-router.get("/mensalidade/listar", MensalidadeController.get);
+
 
 //Alterar – http://localhost:1234/mensalidade/alterar 
 router.get("/mensalidade/alterar", MensalidadeController.Alter);
