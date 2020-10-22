@@ -16,9 +16,9 @@ import { StudentService } from './../../../services/student.service';
 })
 export class ListTreinoComponent implements OnInit {
 
-  Treinos: Treino[] = [];
+  treinos: Treino[] = [];
   treino: Treino;
-  student: Observable<User>;
+  //student: Observable<User>;
 
   constructor(
     private router: Router,
@@ -29,15 +29,9 @@ export class ListTreinoComponent implements OnInit {
 
   ngOnInit(): void {
     this.treinoService.list().subscribe((lista) => {
-
-      var listaDeTreinos: Treino[];
-      
       lista.forEach((value) => {
-        value.student = new User();
-        this.student = this.studentService.find(value.student._id);
-        value.student = this.student;
-        this.Treinos.push(value);
-        
+        value.student = this.studentService.find(value.student._id);
+        this.treinos.push(value);
       })
     });
   }
