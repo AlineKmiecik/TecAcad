@@ -31,14 +31,12 @@ export class ListTreinoComponent implements OnInit {
     this.treinoService.list().subscribe((lista) => {
 
       var listaDeTreinos: Treino[];
-
       
       lista.forEach((value) => {
         value.student = new User();
         this.student = this.studentService.find(value.student._id);
         value.student = this.student;
         this.Treinos.push(value);
-        
         
       })
     });

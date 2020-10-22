@@ -12,12 +12,12 @@ const Treino = new mongoose.Schema({
 
     student: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student'
+        ref: 'User'
     },
 
     teacher: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Teacher'
+        ref: 'User'
     },
 
     activities: [atividade],
