@@ -1,5 +1,6 @@
+//----------------------------------------------------------------------------------------------------------------
 ### --- USER ---
-### CADASTRAR
+### CADASTRAR USER
 POST http://localhost:1234/cadastro/usuario
 Content-Type: application/json
 
@@ -14,22 +15,38 @@ Content-Type: application/json
     "token": ""
 }
 
-### LISTAR
+### LISTAR USER
 GET http://localhost:1234/lista/usuario 
 
 
-### LISTAR POR TIPO
+### LISTAR USER POR TIPO
 GET http://localhost:1234/lista/usuario/Aluno
 ###
 GET http://localhost:1234/lista/usuario/Professor
 ###
 GET http://localhost:1234/lista/usuario/Staff
 
-### BUSCAR POR ID
+### BUSCAR USER POR ID
 GET http://localhost:1234/lista/usuario//5f8c4854bf3f4b0416f5f5e0
 
-### APAGAR
-GET http://localhost:1234/cadastro/usuario/apagar/P2
+### UPDATE USER
+POST http://localhost:1234/cadastro/usuario/update/S1
+Content-Type: application/json
+
+{
+    "firstname": "StaffUpdated",
+    "lastname": "Teste",
+    "document": "S1",
+    "type": "Staff",
+    "username": "s.s",
+    "password": "ss",
+    "status": "Ativo",
+    "token": ""
+}
+
+### APAGAR USER
+GET http://localhost:1234/cadastro/usuario/apagar/S1
+
 
 //----------------------------------------------------------------------------------------------------------------
 ### --- TREINO ---
@@ -59,14 +76,46 @@ Content-Type: application/json
     "concluded": false
 }
 
-### LISTAR
+### LISTAR TREINO
 GET http://localhost:1234/lista/treino
 
-### APAGAR
-GET http://localhost:1234/cadastro/treino/apagar/5f8c5daf268d473f0d75deda/
+### APAGAR TREINO
+GET http://localhost:1234/cadastro/treino/apagar/5f94a15a18f6ae2a9b208255
 
-### BUSCAR POR ID
-GET http://localhost:1234/lista/treino/5f921ef77221f6ff48cfa9c2
+### BUSCAR TREINO POR ID
+GET http://localhost:1234/lista/treino/5f94a268fedd482c85a2dc9f
+
+### UPDATE TREINO
+POST http://localhost:1234/cadastro/treino/update/5f94a268fedd482c85a2dc9f
+Content-Type: application/json
+
+{
+    "date": "2020-10-24",
+    "student": "5f8c4854bf3f4b0416f5f5e0",
+    "teacher": "5f8c4873bf3f4b0416f5f5e1",
+    "activities": [
+        {
+        "name": "3AtividadeTeste",
+        "description": "Descricao da atividade 1",
+        "concluded": false,
+        "price": 30
+        },
+        {
+        "name": "4AtividadeTeste",
+        "description": "Descricao da atividade 2",
+        "concluded": false,
+        "price": 40
+        }
+    ],
+
+    "concluded": false
+}
+
+
+### APAGAR TREINO
+GET http://localhost:1234/cadastro/treino/apagar/5f94a268fedd482c85a2dc9f
+
+
 
 //----------------------------------------------------------------------------------------------------------------
 ### --- MENSALIDADE ---
@@ -81,5 +130,25 @@ Content-Type: application/json
     "payed": false
 }
 
-### LISTAR
+### LISTAR MENSALIDADE
 GET http://localhost:1234/lista/mensalidade
+
+### BUSCAR MENSALIDADE POR ID
+GET http://localhost:1234/lista/mensalidade/5f8cb63f9e4e41062826a61f
+
+### UPDATE MENSALIDADE
+POST http://localhost:1234/cadastro/mensalidade/update/5f8cb63f9e4e41062826a61f
+Content-Type: application/json
+
+{
+    "date": "2021-10-19",
+    "student": "5f8c4854bf3f4b0416f5f5e0",
+    "price": 5,
+    "payed": false
+}
+
+### APAGAR MENSALIDADE
+GET http://localhost:1234/cadastro/mensalidade/apagar/5f8cb63f9e4e41062826a61f
+
+
+//----------------------------------------------------------------------------------------------------------------

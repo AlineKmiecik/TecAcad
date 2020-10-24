@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Mensalidade = new mongoose.Schema({
+const mensalidade = new mongoose.Schema({
     date: {
         type: Date,
         required: [true, "O campo Data é obrigatório"]
@@ -25,4 +25,4 @@ const Mensalidade = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model('Mensalidade', Mensalidade);
+module.exports = mongoose.model('Mensalidade', mensalidade);

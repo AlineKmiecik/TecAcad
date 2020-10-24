@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const Atividade = new mongoose.Schema({
+const atividade = new mongoose.Schema({
     name: {
         type: String,
         require: [true, "O campo Nome é obrigatório"]
@@ -23,4 +23,4 @@ const Atividade = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = Atividade;
+module.exports = atividade;

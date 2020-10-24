@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const User = new mongoose.Schema({
+const user = new mongoose.Schema({
     firstname: {
         type: String,
         require: [true, "O campo Primeiro Nome é obrigatório"]
@@ -45,4 +45,4 @@ const User = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model('User', User);
+module.exports = mongoose.model('User', user);

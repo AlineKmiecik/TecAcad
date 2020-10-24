@@ -17,7 +17,7 @@ router.get("/lista/usuario", UserController.get);
 router.get("/lista/usuario/:type", UserController.getByType);
 router.get("/lista/usuario//:id", UserController.getById);
 router.post("/cadastro/usuario", UserController.store);
-router.post("/cadastro/usuario/update", UserController.update);
+router.post("/cadastro/usuario/update/:document", UserController.update);
 router.get("/cadastro/usuario/apagar/:document", UserController.delete);
 
 
@@ -25,7 +25,7 @@ router.get("/cadastro/usuario/apagar/:document", UserController.delete);
 router.get("/lista/atividade", AtividadeController.get);
 router.get("/lista/atividade/:id", AtividadeController.getById);
 router.post("/cadastro/atividade", AtividadeController.store);
-router.post("/cadastro/atividade/update", AtividadeController.update);
+router.post("/cadastro/atividade/update/:id", AtividadeController.update);
 router.get("/cadastro/atividade/apagar/:id", AtividadeController.delete);
 
 
@@ -33,7 +33,7 @@ router.get("/cadastro/atividade/apagar/:id", AtividadeController.delete);
 router.get("/lista/treino", TreinoController.get);
 router.get("/lista/treino/:id", TreinoController.getById);
 router.post("/cadastro/treino", TreinoController.store);
-router.post("/cadastro/treino/update", TreinoController.update);
+router.post("/cadastro/treino/update/:id", TreinoController.update);
 router.get("/cadastro/treino/apagar/:id", TreinoController.delete);
 
 
@@ -41,5 +41,7 @@ router.get("/cadastro/treino/apagar/:id", TreinoController.delete);
 router.get("/lista/mensalidade", MensalidadeController.get);
 router.get("/lista/mensalidade/:id", MensalidadeController.getById);
 router.post("/cadastro/mensalidade", MensalidadeController.store);
-router.post("/cadastro/mensalidade/update", MensalidadeController.update);
+router.post("/cadastro/mensalidade/update/:id", MensalidadeController.update);
 router.get("/cadastro/mensalidade/apagar/:id", MensalidadeController.delete);
+
+module.exports = router;

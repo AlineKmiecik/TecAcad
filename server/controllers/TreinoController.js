@@ -28,7 +28,7 @@ class TreinoController {
     }
 
     async update(req, res) {
-        let result = await treino.updateOne(req.params.id, req.body);
+        let result = await treino.updateOne({ _id: req.params.id }, req.body);
         res.status(200).json(result);
     }
 

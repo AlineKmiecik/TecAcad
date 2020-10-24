@@ -1,2 +1,2 @@
-require("./config/server.js");
-require("./config/database.js");
+require("./config/server");
+require("./config/database");
