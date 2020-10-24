@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const user = require("./User");
 
 const Mensalidade = new mongoose.Schema({
     date: {
@@ -26,4 +25,4 @@ const Mensalidade = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now }
 });
 
-module.exports = mongoose.model("Mensalidade", Mensalidade);
+module.exports = mongoose.model('Mensalidade', Mensalidade);

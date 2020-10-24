@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
-const atividade = require("./Atividade");
-const user = require("./User");
+const atividadeSchema = require("./AtividadeSchema.js");
 
-
-const Treino = new mongoose.Schema({
-
+const treinoSchema = new mongoose.Schema({
     date: {
         type: Date,
         required: [true, "O campo Data do Treino é obrigatório"],
@@ -20,7 +17,7 @@ const Treino = new mongoose.Schema({
         ref: 'User'
     },
 
-    activities: [atividade],
+    activities: [atividadeSchema],
 
     concluded: {
         type: Boolean,
@@ -30,4 +27,4 @@ const Treino = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Treino", Treino);
+module.exports = mongoose.model('Treino', treinoSchema);

@@ -1,4 +1,4 @@
-const user = require("../models/User");
+const user = require("../models/UserSchema");
 
 class UserController {
 
@@ -26,12 +26,15 @@ class UserController {
     }
 
     async getByType(req, res) {
+        console.log("entr: " + req.params.type);
         var result = await user.find({ type: req.params.type }).exec();
         res.status(200).json(result);
     }
 
     async getById(req, res) {
+        console.log("entr: " + req.params.id);
         var result = await user.findOne({ _id: req.params.id });
+        console.log("mas: " + result);
         res.status(200).json(result);
     }
 

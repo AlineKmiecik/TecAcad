@@ -15,18 +15,18 @@ Content-Type: application/json
 }
 
 ### LISTAR
-GET http://localhost:1234/usuario/listar 
+GET http://localhost:1234/lista/usuario 
 
 
 ### LISTAR POR TIPO
-GET http://localhost:1234/usuario/listar/Aluno
+GET http://localhost:1234/lista/usuario/Aluno
 ###
-GET http://localhost:1234/usuario/listar/Professor
+GET http://localhost:1234/lista/usuario/Professor
 ###
-GET http://localhost:1234/usuario/listar/Staff
+GET http://localhost:1234/lista/usuario/Staff
 
 ### BUSCAR POR ID
-GET http://localhost:1234/usuario/listar//5f8c4854bf3f4b0416f5f5e0
+GET http://localhost:1234/lista/usuario//5f8c4854bf3f4b0416f5f5e0
 
 ### APAGAR
 GET http://localhost:1234/cadastro/usuario/apagar/P2
@@ -38,21 +38,21 @@ POST http://localhost:1234/cadastro/treino
 Content-Type: application/json
 
 {
-    "date": "2020-10-19",
+    "date": "2021-10-19",
     "student": "5f8c4854bf3f4b0416f5f5e0",
     "teacher": "5f8c4873bf3f4b0416f5f5e1",
     "activities": [
         {
-        "name": "1AtividadeTeste",
+        "name": "3AtividadeTeste",
         "description": "Descricao da atividade 1",
         "concluded": false,
-        "price": 10
+        "price": 30
         },
         {
-        "name": "2AtividadeTeste",
+        "name": "4AtividadeTeste",
         "description": "Descricao da atividade 2",
         "concluded": false,
-        "price": 20
+        "price": 40
         }
     ],
 
@@ -60,7 +60,13 @@ Content-Type: application/json
 }
 
 ### LISTAR
-GET http://localhost:1234/listar/treino
+GET http://localhost:1234/lista/treino
+
+### APAGAR
+GET http://localhost:1234/cadastro/treino/apagar/5f8c5daf268d473f0d75deda/
+
+### BUSCAR POR ID
+GET http://localhost:1234/lista/treino/5f921ef77221f6ff48cfa9c2
 
 //----------------------------------------------------------------------------------------------------------------
 ### --- MENSALIDADE ---
@@ -76,4 +82,4 @@ Content-Type: application/json
 }
 
 ### LISTAR
-GET http://localhost:1234/listar/mensalidade
+GET http://localhost:1234/lista/mensalidade
