@@ -47,8 +47,6 @@ onSubmit() {
             next: () => {
                 // pega a URL de retorno ou seta a Home
                 const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/treino/create';
-                console.log("ReturnURL: " + returnUrl)
-                console.log("RetornoStorage: " + localStorage.getItem('user'))
                 this.router.navigateByUrl(returnUrl);
             },
             error: error => {

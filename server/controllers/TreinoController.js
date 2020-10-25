@@ -38,6 +38,19 @@ class TreinoController {
         ));
     }
 
+    async listPriceByTrainingId(req, res) {
+        let result = await treino.findById(req.params.id);
+
+        let totalPrice = Number(0);
+        let activities = [];
+        activities = result.activities;
+
+        activities.forEach(activitie => {
+            totalPrice += activitie.price;
+        });
+
+        res.status(200).json(totalPrice);
+    }
 
 }
 module.exports = new TreinoController();

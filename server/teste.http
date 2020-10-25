@@ -147,6 +147,9 @@ GET http://localhost:1234/lista/treino
 ### BUSCAR TREINO POR ID
 GET http://localhost:1234/lista/treino/5f94a268fedd482c85a2dc9f
 
+### BUSCAR PRECO DO TREINO POR ID
+GET http://localhost:1234/lista/treino/price/5f95b657116f2b128c7abca0
+
 ### UPDATE TREINO
 POST http://localhost:1234/cadastro/treino/update/5f94a40f585d242e4fadf49a
 Content-Type: application/json

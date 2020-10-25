@@ -11,12 +11,15 @@ import { CreateProfessorComponent } from './views/users/professor/create-profess
 import { UpdateProfessorComponent } from './views/users/professor/update-professor/update-professor.component';
 import { ListProfessorComponent } from './views/users/professor/list-professor/list-professor.component';
 
-import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
-import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
-import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
-import { CreateTreinoComponent } from './views/treino/create-treino/create-treino.component';
 import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
-import { LoginComponent } from './account/login.component';
+//import { UpdateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
+import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
+
+import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
+
+import { CreateTreinoComponent } from './views/treino/create-treino/create-treino.component';
+//import { UpdateTreinoComponent } from './views/treino/create-treino/create-treino.component';
+import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
 
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 
@@ -56,6 +59,10 @@ const routes: Routes = [
     path: 'create/teacher/update/:id', 
     component: UpdateProfessorComponent
   },
+  {
+    path: 'mensalidade/list', 
+    component: ListMensalidadeComponent
+  },
   
   
   /*
@@ -79,10 +86,6 @@ const routes: Routes = [
     component: CreateAtividadeComponent
   },
   //rotas para mensalidade
-  {
-    path: 'mensalidade/list', 
-    component: ListMensalidadeComponent
-  },
   //rotas para treino
   {
     path: 'treino/create', 

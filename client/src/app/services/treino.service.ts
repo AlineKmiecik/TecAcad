@@ -20,4 +20,8 @@ export class TreinoService {
     return this.http.post<Treino>(`${environment.apiUrl}/cadastro/treino`, Treino);
   }
 
+  listPriceByTrainingId(id: String): Observable<Number>{
+    return this.http.get<Number>(`${environment.apiUrl}/lista/treino/price/${id}`);
+  }
+
 }

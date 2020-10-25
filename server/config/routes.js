@@ -35,6 +35,7 @@ router.delete("/cadastro/atividade/apagar/:id", AtividadeController.delete);
 //Treinos
 router.get("/lista/treino", TreinoController.get);
 router.get("/lista/treino/:id", TreinoController.getById);
+router.get("/lista/treino/price/:id", TreinoController.listPriceByTrainingId);
 router.post("/cadastro/treino", TreinoController.store);
 router.post("/cadastro/treino/update/:id", TreinoController.update);
 router.delete("/cadastro/treino/apagar/:id", TreinoController.delete);

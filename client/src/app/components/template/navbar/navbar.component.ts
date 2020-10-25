@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { Location } from '@angular/common';
-import { User } from '../../../models/User';
 import { AccountService } from '../../../services/account.service';
+import { User } from '../../../models/User';
 
 @Component({
   selector: 'app-navbar',
@@ -16,11 +16,14 @@ export class NavbarComponent implements OnInit {
   isProfessor: boolean;
   isStaff: boolean;
 
-  constructor(private router: Router, private location: Location, private accountService: AccountService) {
-    this.user = this.accountService.userValue;
-    this.isAluno = this.accountService.isAluno;
-    this.isProfessor = this.accountService.isProfessor;
-    this.isStaff= this.accountService.isStaff;
+  constructor(
+    private router: Router,
+    private location: Location,
+    private accountService: AccountService) {
+      this.user = this.accountService.userValue;
+      this.isAluno = this.accountService.isAluno;
+      this.isProfessor = this.accountService.isProfessor;
+      this.isStaff= this.accountService.isStaff;
   }
 
   ngOnInit(): void {
