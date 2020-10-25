@@ -7,7 +7,7 @@ import { Treino } from './../../../models/Treino';
 import { Atividade } from './../../../models/Atividade';
 import { User } from './../../../models/User';
 import { TreinoService } from './../../../services/treino.service';
-import { StudentService } from './../../../services/student.service';
+import { StudentService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-list-treino',
@@ -17,8 +17,6 @@ import { StudentService } from './../../../services/student.service';
 export class ListTreinoComponent implements OnInit {
 
   treinos: Treino[] = [];
-  treino: Treino;
-  //student: Observable<User>;
 
   constructor(
     private router: Router,
@@ -29,10 +27,7 @@ export class ListTreinoComponent implements OnInit {
 
   ngOnInit(): void {
     this.treinoService.list().subscribe((lista) => {
-      lista.forEach((value) => {
-        value.student = this.studentService.find(value.student._id);
-        this.treinos.push(value);
-      })
+      this.treinos = lista;
     });
   }
 

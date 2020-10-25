@@ -1,7 +1,7 @@
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './views/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListAlunoComponent } from './views/Aluno/list-aluno/list-aluno.component';
+import { ListAlunoComponent } from './views/users/aluno/list-aluno/list-aluno.component';
 //import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
 import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
 import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
@@ -15,7 +15,6 @@ import { AuthGuard } from './helpers/auth.guard';
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 
 const routes: Routes = [
-  //rotas para aluno
   {
     path: '', 
     component: HomeComponent
@@ -23,13 +22,22 @@ const routes: Routes = [
   { path: 'account',
     loadChildren: accountModule
   },
+
   {
-    path: 'list/student', 
-    component: ListAlunoComponent
+    path: 'list/treino', 
+    component: ListTreinoComponent
   },
+
+  
+  
+  
   /*
+    {
+      path: 'list/student',
+      component: ListAlunoComponent
+    },
   {
-    path: 'aluno/create', 
+    path: 'create/student', 
     component: CreateAlunoComponent
   },
   {
@@ -49,7 +57,7 @@ const routes: Routes = [
   {
     path: 'professor/create', 
     component: CreateProfessorComponent
-  }, */
+  }, 
   //rotas para atividade
   {
     path: 'atividade/list', 
@@ -66,10 +74,6 @@ const routes: Routes = [
   },
   //rotas para treino
   {
-    path: 'list/treino', 
-    component: ListTreinoComponent
-  },
-  {
     path: 'treino/create', 
     component: CreateTreinoComponent
   },
@@ -78,6 +82,7 @@ const routes: Routes = [
     component: LoginComponent
   },
   //{ path: '**', redirectTo: '' }
+  */
 ];
 
 @NgModule({

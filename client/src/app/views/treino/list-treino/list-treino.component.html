@@ -21,7 +21,7 @@
                     <th scope="row">1</th>
                     <td>{{ treino.date| date: "dd/MM/yyyy"}}</td>
                     <td>{{ treino.student.firstname }}</td>
-                    <td>{{ treino.teacher }}</td>
+                    <td>{{ treino.teacher.firstname }}</td>
                     <td>
                         <button class="btn btn-outline-primary" (click)="open(content, treino.activities)"> 
                             Detalhes 

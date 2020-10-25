@@ -15,11 +15,13 @@ export class StudentService {
         private http: HttpClient
         ){}
 
-    list() {
-        return this.http.get<User[]>(`${environment.apiUrl}/usuario/listar/${"Student"}`);
+    listStudents() {
+        return this.http.get<User[]>(`${environment.apiUrl}/lista/usuario/${"Student"}`);
     }
 
-    find(id: string){
-        return this.http.get<User>(`${environment.apiUrl}/usuario/listar//${id}`);
+    findById(id: String){
+        console.log("id: " + id)
+        console.log("student: " + `${environment.apiUrl}/lista/usuario//${id}`)
+        return this.http.get<User>(`${environment.apiUrl}/lista/usuario//${id}`);
       }
 }

@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { environment } from '../../environments/environment';
 import { Treino } from '../models/Treino';
+import { User } from '../models/User';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class TreinoService {
   constructor(private http: HttpClient) { }
 
   list(): Observable<Treino[]> {
-    return this.http.get<Treino[]>(`${environment.apiUrl}/listar/treino`);
+    return this.http.get<Treino[]>(`${environment.apiUrl}/lista/treino`);
   }
 
   create(Treino: Treino): Observable<Treino>{
-    return this.http.post<Treino>('http://localhost:1234/treino/cadastrar', Treino);
+    return this.http.post<Treino>(`${environment.apiUrl}/cadastro/treino`, Treino);
   }
 
 }

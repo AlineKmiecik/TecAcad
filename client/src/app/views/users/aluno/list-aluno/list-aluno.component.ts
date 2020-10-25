@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { User } from './../../../models/User';
-import { StudentService } from './../../../services/student.service';
+import { User } from './../../../../models/User';
+import { StudentService } from '../../../../services/user.service';
 
 @Component({
   selector: 'app-list-aluno',
@@ -19,13 +19,13 @@ export class ListAlunoComponent implements OnInit {
     { }
 
   ngOnInit(): void {
-    this.StudentService.list().subscribe((lista) => {
+    this.StudentService.listStudents().subscribe((lista) => {
       this.Students = lista; 
     });
   }
 
   navigateToMensalidadeList(): void {
-    this.router.navigate(['mensalidade/list']);
+    //this.router.navigate(['mensalidade/list']);
   }
 
 }
