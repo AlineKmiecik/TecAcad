@@ -1,8 +1,7 @@
-/*
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { Professor } from './../../../models/Professor';
-import { ProfessorService } from './../../../services/Professor.service';
+import { User } from './../../../../models/User';
+import { UserService } from '../../../../services/user.service';
 
 @Component({
   selector: 'app-list-professor',
@@ -11,17 +10,17 @@ import { ProfessorService } from './../../../services/Professor.service';
 })
 export class ListProfessorComponent implements OnInit {
 
-  Professores: Professor[] = [];
+  teachers: User[] = [];
 
-  constructor(private router: Router, private ProfessorService: ProfessorService) { }
+  constructor(
+    private router: Router,
+    private userService: UserService)
+    { }
 
   ngOnInit(): void {
-    this.ProfessorService.list().subscribe((lista) => {
-      this.Professores = lista; 
+    this.userService.listTeachers().subscribe((lista) => {
+      this.teachers = lista;
     });
-
   }
 
 }
-
-*/

@@ -24,8 +24,4 @@ export class ListAlunoComponent implements OnInit {
     });
   }
 
-  navigateToMensalidadeList(): void {
-    //this.router.navigate(['mensalidade/list']);
-  }
-
 }

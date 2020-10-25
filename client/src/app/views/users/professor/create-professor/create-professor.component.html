@@ -12,36 +12,36 @@
             <form class="px-4 py-3 border">
                 <div class="form-group">
                     <label for="firstName">Nome</label><br>
-                    <input type="text" id="firstName" placeholder="Digite o primeiro nome" [(ngModel)]="student.firstname" [ngModelOptions]="{standalone: true}" /> <br>
+                    <input type="text" id="firstName" placeholder="Digite o primeiro nome" [(ngModel)]="teacher.firstname" [ngModelOptions]="{standalone: true}" /> <br>
                 </div>
                 <div class="form-group">
                     <label for="lastName">Sobrenome</label><br>
-                    <input type="text" id="lastName" placeholder="Digite os sobrenomes" [(ngModel)]="student.lastname" [ngModelOptions]="{standalone: true}" /> <br>
+                    <input type="text" id="lastName" placeholder="Digite os sobrenomes" [(ngModel)]="teacher.lastname" [ngModelOptions]="{standalone: true}" /> <br>
                 </div>
                 <div class="form-group">
                     <label for="document">CPF</label><br>
                     <!-- TODO: Aplicar máscara-->
-                    <input type="text" id="document" placeholder="Digite o CPF" [(ngModel)]="student.document" [ngModelOptions]="{standalone: true}" /> <br>
+                    <input type="text" id="document" placeholder="Digite o CPF" [(ngModel)]="teacher.document" [ngModelOptions]="{standalone: true}" /> <br>
                 </div>
                 <div class="form-group">
                     <label for="username">Usuário</label><br>
                     <!-- TODO: Seria massa abstrair o USERNAME e SENHA para o aluno escolher depois-->
-                    <input type="text" id="username" placeholder="Digite um nome de usuário" [(ngModel)]="student.username" [ngModelOptions]="{standalone: true}" /> <br>
+                    <input type="text" id="username" placeholder="Digite um nome de usuário" [(ngModel)]="teacher.username" [ngModelOptions]="{standalone: true}" /> <br>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
-                    <input type="password" class="form-control" id="password" placeholder="Crie uma senha" [(ngModel)]="student.password" [ngModelOptions]="{standalone: true}">
+                    <input type="password" class="form-control" id="password" placeholder="Crie uma senha" [(ngModel)]="teacher.password" [ngModelOptions]="{standalone: true}">
                 </div>
                 <div class="mb-3">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="studentStatus" id="studentStatusActive" value="Ativo" [(ngModel)]="student.status" checked>
-                        <label class="form-check-label" for="studentStatusActive">
+                        <input class="form-check-input" type="radio" name="teacherStatus" id="teacherStatusActive" value="Ativo" checked [(ngModel)]="teacher.status">
+                        <label class="form-check-label" for="teacherStatusActive">
                             Ativo
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="studentStatus" id="studentStatusInactive" value="Inativo" [(ngModel)]="student.status">
-                        <label class="form-check-label" for="studentStatusInactive">
+                        <input class="form-check-input" type="radio" name="teacherStatus" id="teacherStatusInactive" value="Inativo" [(ngModel)]="teacher.status">
+                        <label class="form-check-label" for="teacherStatusInactive">
                             Inativo
                         </label>
                     </div>

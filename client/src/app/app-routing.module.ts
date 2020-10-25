@@ -6,7 +6,11 @@ import { AuthGuard } from './helpers/auth.guard';
 import { CreateAlunoComponent } from './views/users/aluno/create-aluno/create-aluno.component';
 import { UpdateAlunoComponent } from './views/users/aluno/update-aluno/update-aluno.component';
 import { ListAlunoComponent } from './views/users/aluno/list-aluno/list-aluno.component';
-//import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
+
+import { CreateProfessorComponent } from './views/users/professor/create-professor/create-professor.component';
+import { UpdateProfessorComponent } from './views/users/professor/update-professor/update-professor.component';
+import { ListProfessorComponent } from './views/users/professor/list-professor/list-professor.component';
+
 import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
 import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
 import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
@@ -24,12 +28,10 @@ const routes: Routes = [
   { path: 'account',
     loadChildren: accountModule
   },
-
   {
     path: 'list/treino', 
     component: ListTreinoComponent
   },
-
   {
     path: 'create/student', 
     component: CreateAlunoComponent
@@ -42,7 +44,18 @@ const routes: Routes = [
     path: 'create/student/update/:id',
     component: UpdateAlunoComponent
   },
-  
+  {
+    path: 'list/teacher', 
+    component: ListProfessorComponent
+  },
+  {
+    path: 'create/teacher', 
+    component: CreateProfessorComponent
+  },
+  {
+    path: 'create/teacher/update/:id', 
+    component: UpdateProfessorComponent
+  },
   
   
   /*
@@ -52,10 +65,6 @@ const routes: Routes = [
   },
 
   //rotas para professor
-  {
-    path: 'professor/list', 
-    component: ListProfessorComponent
-  },
   {
     path: 'professor/create', 
     component: CreateProfessorComponent

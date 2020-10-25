@@ -2,28 +2,33 @@
 <div class="m-5">
     <div class="row my-3">
         <div class="col-10">
-            <h1>Lista de Professores</h1>
+            <h1>Listar Professores</h1>
         </div>
     </div>
     <div>
         <table class="table">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
                     <th scope="col">Nome</th>
-                    <th scope="col">Data Admissão</th>
                     <th scope="col">CPF</th>
+                    <th scope="col">Situação</th>
+                    <th scope="col">Cadastro</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let Professor of Professores">
-                    <th scope="row">1</th>
-                    <td>{{Professor.Nome}}</td>
-                    <td>{{Professor.createdAt | date: "dd/MM/yyyy"}}</td>
-                    <td>{{ Professor.Cpf }}</td>
+                <tr *ngFor="let teacher of teachers">
+                    <td>{{ teacher.firstname }} {{ teacher.lastname }}</td>
+                    <td>{{ teacher.document }}</td>
+                    <td>{{ teacher.status }}</td>
+                    <td>
+                        <a routerLink="../../create/teacher/update/{{ teacher._id }}">Alterar</a>
+                    </td>
                 </tr>
             </tbody>
+
         </table>
     </div>
 </div>
+
 <app-footer></app-footer>

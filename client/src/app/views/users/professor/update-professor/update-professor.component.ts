@@ -6,11 +6,11 @@ import { UserService } from '../../../../services/user.service';
 import { User } from '../../../../models/User';
 
 @Component({
-  selector: 'app-update-aluno',
-  templateUrl: './update-aluno.component.html',
-  styleUrls: ['./update-aluno.component.css']
+  selector: 'app-update-professor',
+  templateUrl: './update-professor.component.html',
+  styleUrls: ['./update-professor.component.css']
 })
-export class UpdateAlunoComponent implements OnInit {
+export class UpdateProfessorComponent implements OnInit {
 
   constructor(
     private userService: UserService,
@@ -18,11 +18,11 @@ export class UpdateAlunoComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private alerts: AlertsService) { }
 
-    student: User ={
+    teacher: User ={
       firstname: "",
       lastname: "",
       document: "",
-      type: "Aluno",
+      type: "Professor",
       username: "",
       password: "",
       status: "",
@@ -33,27 +33,27 @@ export class UpdateAlunoComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get("id");
     this.userService.findById(this.id).subscribe((user) => {
-      this.student = user;
+      this.teacher = user;
     });
   }
 
   update(): void {
-    this.userService.update(this.student, this.id).subscribe((student) => {
-      this.alerts.setMessage('Aluno alterado com sucesso!','success');
+    this.userService.update(this.teacher, this.id).subscribe((teacher) => {
+      this.alerts.setMessage('Professor alterado com sucesso!','success');
       this.redirect();
     });
   }
 
   delete(): void {
     this.userService.delete(this.id).subscribe((student) => {
-      this.alerts.setMessage('Aluno apagado com sucesso!','success');
+      this.alerts.setMessage('Professor apagado com sucesso!','success');
       this.redirect();
     });
   }
 
   async redirect(){
     await this.delay(2000)
-    this.router.navigate(['list/student']);
+    this.router.navigate(['list/teacher']);
   }
 
   delay(ms: number) {

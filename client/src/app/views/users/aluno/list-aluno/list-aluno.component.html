@@ -20,7 +20,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let student of students">
-                    <td>{{ student.firstname }}</td>
+                    <td>{{ student.firstname }} {{ student.lastname }}</td>
                     <td>{{ student.createdAt | date: "dd/MM/yyyy" }}</td>
                     <td>{{ student.document }}</td>
                     <td>{{ student.status }}</td>

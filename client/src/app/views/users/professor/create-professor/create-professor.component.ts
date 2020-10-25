@@ -6,11 +6,11 @@ import { UserService } from '../../../../services/user.service';
 import { User } from '../../../../models/User';
 
 @Component({
-  selector: 'app-create-aluno',
-  templateUrl: './create-aluno.component.html',
-  styleUrls: ['./create-aluno.component.css']
+  selector: 'app-create-professor',
+  templateUrl: './create-professor.component.html',
+  styleUrls: ['./create-professor.component.css']
 })
-export class CreateAlunoComponent implements OnInit {
+export class CreateProfessorComponent implements OnInit {
 
   constructor(
     private userService: UserService,
@@ -20,11 +20,11 @@ export class CreateAlunoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  student: User ={
+  teacher: User ={
     firstname: "",
     lastname: "",
     document: "",
-    type: "Aluno",
+    type: "Professor",
     username: "",
     password: "",
     status: "",
@@ -32,15 +32,15 @@ export class CreateAlunoComponent implements OnInit {
   }
 
   create(): void {
-    this.userService.create(this.student).subscribe((student) => {
-      this.alerts.setMessage('Aluno cadastrado com sucesso!','success');
+    this.userService.create(this.teacher).subscribe((teacher) => {
+      this.alerts.setMessage('Professor cadastrado com sucesso!','success');
       this.redirect();
     });
   }
 
   async redirect(){
     await this.delay(2000)
-    this.router.navigate(['list/student']);
+    this.router.navigate(['list/teacher']);
   }
 
   delay(ms: number) {
