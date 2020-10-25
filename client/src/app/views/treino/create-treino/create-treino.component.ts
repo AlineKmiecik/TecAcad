@@ -6,7 +6,7 @@ import { TreinoService } from 'src/app/services/treino.service';
 import { User } from '../../../models/User';
 import { Atividade } from '../../../models/Atividade';
 import { AccountService } from '../../../services/account.service';
-import { StudentService } from '../../../services/user.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-create-treino',
@@ -25,10 +25,10 @@ export class CreateTreinoComponent implements OnInit {
   constructor(
     private service: TreinoService,
     private accountService: AccountService,
-    private studentService: StudentService,
+    private userService: UserService,
     private modalService: NgbModal) {
       this.user = this.accountService.userValue;
-      this.students = this.studentService.listStudents();
+      this.students = this.userService.listStudents();
   }
 
   Treino: Treino = {

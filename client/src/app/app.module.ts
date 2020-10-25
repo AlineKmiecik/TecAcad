@@ -1,48 +1,58 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AlertsModule } from 'angular-alert-module';
 
-import { AppComponent } from './app.component';
-//import { ListAlunoComponent } from './views/aluno/list-aluno/list-aluno.component';
-//import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
-//import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.component';
-import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
-import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
-import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
-import { CreateTreinoComponent } from './views/treino/create-treino/create-treino.component';
-import { NavbarComponent } from './components/template/navbar/navbar.component';
-//import { CreateProfessorComponent } from './views/professor/create-professor/create-professor.component';
-//import { CreateAlunoComponent } from './views/aluno/create-aluno/create-aluno.component';
-import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
-import { FooterComponent } from './components/template/footer/footer.component';
-import { HomeComponent } from './views/home/home.component';
-import { LoginComponent } from './account/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-import { ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { ErrorInterceptor } from './helpers/error.interceptor';
 import { JwtInterceptor } from './helpers/jwt.interceptor';
+
+import { HomeComponent } from './views/home/home.component';
+import { LoginComponent } from './account/login.component';
+import { NavbarComponent } from './components/template/navbar/navbar.component';
+import { FooterComponent } from './components/template/footer/footer.component';
+
+import { CreateAlunoComponent } from './views/users/aluno/create-aluno/create-aluno.component';
+import { UpdateAlunoComponent } from './views/users/aluno/update-aluno/update-aluno.component';
+import { ListAlunoComponent } from './views/users/aluno/list-aluno/list-aluno.component';
+
+//import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
+//import { CreateProfessorComponent } from './views/professor/create-professor/create-professor.component';
+
+import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
+import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
+
+import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
+
+import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
+import { CreateTreinoComponent } from './views/treino/create-treino/create-treino.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    //ListAlunoComponent,
-    //ListProfessorComponent,
-    ListAtividadeComponent,
-    ListMensalidadeComponent,
-    ListTreinoComponent,
-    CreateTreinoComponent,
-    NavbarComponent,
-    //CreateProfessorComponent,
-    //CreateAlunoComponent,
-    CreateAtividadeComponent,
-    FooterComponent,
     HomeComponent,
     LoginComponent,
-    //UpdateAlunoComponent
+    NavbarComponent,
+    FooterComponent,
+
+    CreateAlunoComponent,
+    UpdateAlunoComponent,
+    ListAlunoComponent,
+
+    //ListProfessorComponent,
+    //CreateProfessorComponent,
+
+    ListAtividadeComponent,
+    CreateAtividadeComponent,
+
+    ListMensalidadeComponent,
+
+    ListTreinoComponent,
+    CreateTreinoComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +60,8 @@ import { JwtInterceptor } from './helpers/jwt.interceptor';
     HttpClientModule,
     FormsModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AlertsModule.forRoot()
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

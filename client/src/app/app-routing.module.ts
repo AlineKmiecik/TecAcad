@@ -1,6 +1,10 @@
 import { HomeComponent } from './views/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './helpers/auth.guard';
+
+import { CreateAlunoComponent } from './views/users/aluno/create-aluno/create-aluno.component';
+import { UpdateAlunoComponent } from './views/users/aluno/update-aluno/update-aluno.component';
 import { ListAlunoComponent } from './views/users/aluno/list-aluno/list-aluno.component';
 //import { ListProfessorComponent } from './views/professor/list-professor/list-professor.component';
 import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
@@ -9,8 +13,6 @@ import { ListTreinoComponent } from './views/treino/list-treino/list-treino.comp
 import { CreateTreinoComponent } from './views/treino/create-treino/create-treino.component';
 import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
 import { LoginComponent } from './account/login.component';
-//import { UpdateAlunoComponent } from './views/aluno/update-aluno/update-aluno.component';
-import { AuthGuard } from './helpers/auth.guard';
 
 const accountModule = () => import('./account/account.module').then(x => x.AccountModule);
 
@@ -28,22 +30,22 @@ const routes: Routes = [
     component: ListTreinoComponent
   },
 
-  
-  
-  
-  /*
-    {
-      path: 'list/student',
-      component: ListAlunoComponent
-    },
   {
     path: 'create/student', 
     component: CreateAlunoComponent
   },
   {
-    path: 'aluno/update/:cpfAluno', 
+    path: 'list/student',
+    component: ListAlunoComponent
+  },
+  {
+    path: 'create/student/update/:id',
     component: UpdateAlunoComponent
   },
+  
+  
+  
+  /*
   {
     path: 'aluno/update', 
     component: UpdateAlunoComponent

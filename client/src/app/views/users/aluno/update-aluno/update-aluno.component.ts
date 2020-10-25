@@ -1,8 +1,10 @@
-/*
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Aluno } from 'src/app/models/Aluno';
-import { AlunoService } from 'src/app/services/aluno.service';
+import { Router,ActivatedRoute } from '@angular/router';
+import { AlertsService } from 'angular-alert-module';
+import { environment } from '../../../../../environments/environment';
+
+import { UserService } from '../../../../services/user.service';
+import { User } from '../../../../models/User';
 
 @Component({
   selector: 'app-update-aluno',
@@ -11,27 +13,51 @@ import { AlunoService } from 'src/app/services/aluno.service';
 })
 export class UpdateAlunoComponent implements OnInit {
 
-  Aluno: Aluno ={
-    _id: "",
-    nome: "",
-    cpf: "",
-    status: ""
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private alerts: AlertsService) { }
 
-  }
-
-  constructor(private router: Router, private AlunoService: AlunoService) { }
+    student: User ={
+      firstname: "",
+      lastname: "",
+      document: "",
+      type: "Aluno",
+      username: "",
+      password: "",
+      status: "",
+      token: "",
+    }
+    id: String;
 
   ngOnInit(): void {
-    this.AlunoService.Find(this.Aluno.cpf).subscribe((Aluno) => {
-      this.Aluno = Aluno; 
+    this.id = this.activatedRoute.snapshot.paramMap.get("id");
+    this.userService.findById(this.id).subscribe((user) => {
+      this.student = user;
     });
   }
 
-  Update(): void {
-    this.AlunoService.update(this.Aluno).subscribe((Aluno) => {
+  update(): void {
+    this.userService.update(this.student, this.id).subscribe((student) => {
+      this.alerts.setMessage('Aluno alterado com sucesso!','success');
+      this.router.navigate(['list/student']);
     });
   }
 
+  delete(): void {
+    this.userService.delete(this.id).subscribe((student) => {
+      this.alerts.setMessage('Aluno apagado com sucesso!','success');
+      this.redirect();
+    });
+  }
+
+  async redirect(){
+    await this.delay(2000)
+    this.router.navigate(['list/student']);
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
 }
-
-*/

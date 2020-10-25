@@ -1,13 +1,8 @@
-<!-- <app-navbar></app-navbar> -->
+<app-navbar></app-navbar>
 <div class="m-5">
     <div class="row my-3">
         <div class="col-10">
             <h1>Listar Alunos</h1>
-        </div>
-        <div class="col-2">
-            <button class="btn btn-outline-primary" (click)="navigateToMensalidadeList()"> 
-        Mensalidades 
-      </button>
         </div>
     </div>
     <div>
@@ -18,23 +13,29 @@
                     <th scope="col">Data Matrícula</th>
                     <th scope="col">CPF</th>
                     <th scope="col">Situação</th>
+                    <th scope="col">Cadastro</th>
+                    <th scope="col">Mensalidades</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let Aluno of Alunos">
-                    <td>{{Aluno.nome}}</td>
-                    <td>{{Aluno.createdAt | date: "dd/MM/yyyy"}}</td>
-                    <td>{{ Aluno.cpf }}</td>
-                    <td>{{ Aluno.status }}</td>
-
+                <tr *ngFor="let student of students">
+                    <td>{{ student.firstname }}</td>
+                    <td>{{ student.createdAt | date: "dd/MM/yyyy" }}</td>
+                    <td>{{ student.document }}</td>
+                    <td>{{ student.status }}</td>
                     <td>
-                        <a routerLink="/aluno/update/{{Aluno.cpf}}">Alterar</a>
+                        <a routerLink="../../create/student/update/{{ student._id }}">Alterar</a>
                     </td>
-
+                    <!--TODO Implementar botao mensalidades abaixo-->
+                    <td>
+                        <a routerLink="../../create/student/update/{{ student._id }}">Visualizar</a>
+                    </td>
                 </tr>
             </tbody>
+
         </table>
     </div>
 </div>
-<!-- <app-footer></app-footer> -->
+
+<app-footer></app-footer>

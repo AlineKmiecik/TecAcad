@@ -6,3 +6,7 @@ a {
     min-height: 320px;
     overflow: hidden;
 }
+
+.form-control {
+    width: auto;
+}

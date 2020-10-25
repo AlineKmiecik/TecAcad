@@ -48,8 +48,8 @@ export class AccountService {
 
     logout() {
         // remove o user do local storage e seta null
-        //localStorage.removeItem('user'); TODO Remover comentario
-        //this.user = null; TODO Remover comentario
+        //localStorage.removeItem('user'); //TODO Remover comentario
+        //this.user = null; //TODO Remover comentario
         this.router.navigate(['']);
     }
 

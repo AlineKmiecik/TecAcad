@@ -12,8 +12,29 @@
                 <a class="nav-link" href="list/treino">Treinos</a>
             </li>
             <li *ngIf="isProfessor == false" class="nav-item">
-                <a class="nav-link" href="list/treino">Mensalidades</a>
-                <!-- TODO ˆˆ -->
+                <a class="nav-link" href="">Mensalidades</a>
+            </li>
+            <li *ngIf="isStaff == true" class="nav-item">
+                <div class="dropdown show">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Listar
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="list/student">Aluno</a>
+                        <a class="dropdown-item" href="#">Professor</a>
+                    </div>
+                </div>
+            </li>
+            <li *ngIf="isStaff == true" class="nav-item">
+                <div class="dropdown show">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Cadastrar
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="create/student">Aluno</a>
+                        <a class="dropdown-item" href="#">Professor</a>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>
@@ -25,3 +46,4 @@
     <button title="Sair" class="fa fa-sign-out" (click)="logout()">
     </button>
 </nav>
+<app-alerts></app-alerts>

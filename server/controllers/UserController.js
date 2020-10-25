@@ -35,8 +35,13 @@ class UserController {
         res.status(200).json(result);
     }
 
+    async getByDocument(req, res) {
+        let result = await user.findOne({ document: req.params.document });
+        res.status(200).json(result);
+    }
+
     async update(req, res) {
-        let result = await user.updateOne({ document: req.params.document }, req.body);
+        let result = await user.updateOne({ _id: req.params.id }, req.body);
         res.status(200).json(result);
     }
 
@@ -45,6 +50,10 @@ class UserController {
         res.status(200).json(result);
     }
 
+    async deleteById(req, res) {
+        let result = await user.deleteOne({ _id: req.params.id });
+        res.status(200).json(result);
+    }
 
 }
 module.exports = new UserController();

@@ -58,3 +58,5 @@ onSubmit() {
 }
 
 }
+//user	[{"_id":"5f8c4854bf3f4b0416f5f5e0","firstname":"Aluno","lastname":"Teste","document":"A1","type":"Aluno","username":"a.a","password":"aa","status":"Ativo","token":"","createdAt":"2020-10-18T13:51:16.485Z","__v":0}]
+//user	[{"_id":"5f949ebe02c57027248c4c7d","firstname":"Staff","lastname":"Teste","document":"S1","type":"Staff","username":"s.s","password":"ss","status":"Ativo","token":"","createdAt":"2020-10-24T21:38:06.447Z","__v":0}]

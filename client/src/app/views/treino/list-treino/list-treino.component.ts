@@ -7,7 +7,7 @@ import { Treino } from './../../../models/Treino';
 import { Atividade } from './../../../models/Atividade';
 import { User } from './../../../models/User';
 import { TreinoService } from './../../../services/treino.service';
-import { StudentService } from '../../../services/user.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-list-treino',
@@ -22,7 +22,7 @@ export class ListTreinoComponent implements OnInit {
     private router: Router,
     private treinoService: TreinoService,
     private modalService: NgbModal,
-    private studentService: StudentService) { }
+    private userService: UserService) { }
     
 
   ngOnInit(): void {

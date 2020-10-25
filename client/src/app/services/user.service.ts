@@ -8,7 +8,8 @@ import { environment } from '../../environments/environment';
 import { User } from '../models/User';
 
 @Injectable({ providedIn: 'root' })
-export class StudentService {
+
+export class UserService {
 
     constructor(
         private router: Router,
@@ -16,12 +17,30 @@ export class StudentService {
         ){}
 
     listStudents() {
-        return this.http.get<User[]>(`${environment.apiUrl}/lista/usuario/${"Student"}`);
+        return this.http.get<User[]>(`${environment.apiUrl}/lista/usuario/${"Aluno"}`);
+    }
+
+    listTeachers() {
+        return this.http.get<User[]>(`${environment.apiUrl}/lista/usuario/${"Professor"}`);
     }
 
     findById(id: String){
-        console.log("id: " + id)
-        console.log("student: " + `${environment.apiUrl}/lista/usuario//${id}`)
         return this.http.get<User>(`${environment.apiUrl}/lista/usuario//${id}`);
-      }
+    }
+
+    findByDocument(document: String){
+        return this.http.get<User>(`${environment.apiUrl}/lista/usuario//${document}`);
+    }
+
+    create(user: User): Observable<User>{
+        return this.http.post<User>(`${environment.apiUrl}/cadastro/usuario`, user);
+    }
+
+    update(user: User,  id: String): Observable<User>{
+        return this.http.post<User>(`${environment.apiUrl}/cadastro/usuario/update/${id}`, user);
+    }
+
+    delete(id: String): Observable<User>{
+        return this.http.delete<User>(`${environment.apiUrl}/cadastro/usuario/apagar//${id}`);
+    }
 }

@@ -5,18 +5,77 @@ POST http://localhost:1234/cadastro/usuario
 Content-Type: application/json
 
 {
-    "firstname": "Staff",
-    "lastname": "Teste",
-    "document": "S1",
-    "type": "Staff",
-    "username": "s.s",
-    "password": "ss",
-    "status": "Ativo",
+    "firstname": "APA",
+    "lastname": "APA",
+    "document": "444",
+    "type": "Aluno",
+    "username": "apa",
+    "password": "password",
+    "status": "Inativo",
     "token": ""
 }
 
+### CADASTRAR VARIOS USER
+POST http://localhost:1234/cadastro/usuario
+Content-Type: application/json
+
+[{
+    "firstname": "Douglas",
+    "lastname": "Gorges",
+    "document": "16071022932",
+    "type": "Aluno",
+    "username": "douglas.gorges",
+    "password": "password",
+    "status": "Ativo",
+    "token": ""
+},
+
+{
+    "firstname": "Vinicius",
+    "lastname": "Camargo",
+    "document": "38883271050",
+    "type": "Aluno",
+    "username": "vinicius.camargo",
+    "password": "password",
+    "status": "Ativo",
+    "token": ""
+},
+
+{
+    "firstname": "Aline",
+    "lastname": "Kmiecik",
+    "document": "73994674042",
+    "type": "Aluno",
+    "username": "aline.kmiecik",
+    "password": "password",
+    "status": "Ativo",
+    "token": ""
+},
+
+{
+    "firstname": "Sherida",
+    "lastname": "Silva",
+    "document": "90162422016",
+    "type": "Professor",
+    "username": "sherida.silva",
+    "password": "password",
+    "status": "Ativo",
+    "token": ""
+},
+
+{
+    "firstname": "Pedro",
+    "lastname": "Machado",
+    "document": "27119239082",
+    "type": "Professor",
+    "username": "pedro.machado",
+    "password": "password",
+    "status": "Ativo",
+    "token": ""
+}]
+
 ### LISTAR USER
-GET http://localhost:1234/lista/usuario 
+GET http://localhost:1234/lista/usuario
 
 
 ### LISTAR USER POR TIPO
@@ -26,26 +85,32 @@ GET http://localhost:1234/lista/usuario/Professor
 ###
 GET http://localhost:1234/lista/usuario/Staff
 
+### BUSCAR USER POR Documento
+GET http://localhost:1234/lista/usuario///16071022932
+
 ### BUSCAR USER POR ID
-GET http://localhost:1234/lista/usuario//5f8c4854bf3f4b0416f5f5e0
+GET http://localhost:1234/lista/usuario//5f95ccfbfd82d14bc491ba48
 
 ### UPDATE USER
-POST http://localhost:1234/cadastro/usuario/update/S1
+POST http://localhost:1234/cadastro/usuario/update/5f95b5c1116f2b128c7abc98
 Content-Type: application/json
 
 {
-    "firstname": "StaffUpdated",
-    "lastname": "Teste",
-    "document": "S1",
-    "type": "Staff",
-    "username": "s.s",
-    "password": "ss",
+    "firstname": "Douglas",
+    "lastname": "Gorges Updated",
+    "document": "16071022932",
+    "type": "Aluno",
+    "username": "douglas.gorges",
+    "password": "password",
     "status": "Ativo",
     "token": ""
 }
 
-### APAGAR USER
-GET http://localhost:1234/cadastro/usuario/apagar/S1
+### APAGAR USER by document
+GET http://localhost:1234/cadastro/usuario/apagar/333
+
+### APAGAR USER by id
+DELETE http://localhost:1234/cadastro/usuario/apagar//5f95ccfbfd82d14bc491ba48
 
 
 //----------------------------------------------------------------------------------------------------------------
@@ -56,8 +121,8 @@ Content-Type: application/json
 
 {
     "date": "2021-10-19",
-    "student": "5f8c4854bf3f4b0416f5f5e0",
-    "teacher": "5f8c4873bf3f4b0416f5f5e1",
+    "student": "5f95b5c1116f2b128c7abc98",
+    "teacher": "5f95b5c1116f2b128c7abc9b",
     "activities": [
         {
         "name": "3AtividadeTeste",
@@ -79,14 +144,11 @@ Content-Type: application/json
 ### LISTAR TREINO
 GET http://localhost:1234/lista/treino
 
-### APAGAR TREINO
-GET http://localhost:1234/cadastro/treino/apagar/5f94a15a18f6ae2a9b208255
-
 ### BUSCAR TREINO POR ID
 GET http://localhost:1234/lista/treino/5f94a268fedd482c85a2dc9f
 
 ### UPDATE TREINO
-POST http://localhost:1234/cadastro/treino/update/5f94a268fedd482c85a2dc9f
+POST http://localhost:1234/cadastro/treino/update/5f94a40f585d242e4fadf49a
 Content-Type: application/json
 
 {
@@ -96,13 +158,13 @@ Content-Type: application/json
     "activities": [
         {
         "name": "3AtividadeTeste",
-        "description": "Descricao da atividade 1",
+        "description": "Descricao da atividade 3",
         "concluded": false,
         "price": 30
         },
         {
         "name": "4AtividadeTeste",
-        "description": "Descricao da atividade 2",
+        "description": "Descricao da atividade 4",
         "concluded": false,
         "price": 40
         }
@@ -113,7 +175,7 @@ Content-Type: application/json
 
 
 ### APAGAR TREINO
-GET http://localhost:1234/cadastro/treino/apagar/5f94a268fedd482c85a2dc9f
+DELETE http://localhost:1234/cadastro/treino/apagar/5f94a268fedd482c85a2dc9f
 
 
 
@@ -148,7 +210,7 @@ Content-Type: application/json
 }
 
 ### APAGAR MENSALIDADE
-GET http://localhost:1234/cadastro/mensalidade/apagar/5f8cb63f9e4e41062826a61f
+DELETE http://localhost:1234/cadastro/mensalidade/apagar/5f8cb63f9e4e41062826a61f
 
 
 //----------------------------------------------------------------------------------------------------------------
