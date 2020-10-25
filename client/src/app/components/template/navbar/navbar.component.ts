@@ -15,6 +15,7 @@ export class NavbarComponent implements OnInit {
   isAluno: boolean;
   isProfessor: boolean;
   isStaff: boolean;
+  isLogged: boolean;
 
   constructor(
     private router: Router,
@@ -23,7 +24,8 @@ export class NavbarComponent implements OnInit {
       this.user = this.accountService.userValue;
       this.isAluno = this.accountService.isAluno;
       this.isProfessor = this.accountService.isProfessor;
-      this.isStaff= this.accountService.isStaff;
+      this.isStaff = this.accountService.isStaff;
+      this.isLogged = this.accountService.isLogged;
   }
 
   ngOnInit(): void {

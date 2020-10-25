@@ -46,8 +46,9 @@ onSubmit() {
         .subscribe({
             next: () => {
                 // pega a URL de retorno ou seta a Home
-                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/treino/create';
-                this.router.navigateByUrl(returnUrl);
+                //const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/treino/create';
+                this.loading = false;
+                this.router.navigateByUrl('');
             },
             error: error => {
                 this.loading = false;

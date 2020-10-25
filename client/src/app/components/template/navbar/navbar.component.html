@@ -3,7 +3,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarNav" *ngIf="isLogged == true">
         <ul class="navbar-nav">
             <li class="nav-item active">
                 <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -38,12 +38,14 @@
             </li>
         </ul>
     </div>
-    <div class="mx-auto px-4">
-        <p class="mb-0 f_400">Você está logado como {{user.firstname}} {{user.lastname}}</p>
+    <div *ngIf="isLogged == true">
+        <div class="mx-auto px-4">
+            <p class="mb-0 f_400">Você está logado como {{user.firstname}} {{user.lastname}}</p>
+        </div>
+        <button title="Voltar" class="fa fa-mail-reply" (click)="backClicked()">
+        </button>
+        <button title="Sair" class="fa fa-sign-out" (click)="logout()">
+        </button>
     </div>
-    <button title="Voltar" class="fa fa-mail-reply" (click)="backClicked()">
-    </button>
-    <button title="Sair" class="fa fa-sign-out" (click)="logout()">
-    </button>
 </nav>
 <app-alerts></app-alerts>

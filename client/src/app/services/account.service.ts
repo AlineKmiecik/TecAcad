@@ -10,30 +10,35 @@ import { User } from '../models/User';
 @Injectable({ providedIn: 'root' })
 export class AccountService {
     private user: User;
-    
+
     constructor(
         private router: Router,
         private http: HttpClient
         ) {
             var parsed = JSON.parse(localStorage.getItem('user'));
             if(parsed != null){
-                this.user = parsed[0];}
+                this.user = parsed[0];
+            }
         }
 
     public get userValue(): User {
         return this.user;
     }
 
+    public get isLogged(): boolean {
+        return this.user != null;
+    }
+
     public get isAluno(): boolean{
-        return this.user.type == "Aluno";
+        return this.user == null ? false : this.user.type == "Aluno";
     } 
 
     public get isProfessor(): boolean{
-        return this.user.type == "Professor";
+        return this.user == null ? false : this.user.type == "Professor";
     } 
 
     public get isStaff(): boolean{
-        return this.user.type == "Staff";
+        return this.user == null ? false : this.user.type == "Staff";
     } 
 
     login(username, password): Observable<User> {
@@ -48,8 +53,8 @@ export class AccountService {
 
     logout() {
         // remove o user do local storage e seta null
-        //localStorage.removeItem('user'); //TODO Remover comentario
-        //this.user = null; //TODO Remover comentario
+        localStorage.removeItem('user');
+        this.user = null;
         this.router.navigate(['']);
     }
 

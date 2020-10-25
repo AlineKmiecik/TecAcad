@@ -1,8 +1,10 @@
 <app-navbar></app-navbar>
 <div class="row">
     <div class="col-9">
+        <img src="home_banner.jpg" width="500" height="400">
+        <!--TODO Remover ou trocar a imagem da capa do site e mudar o local dela-->
     </div>
-    <div class="col-3 px-4 py-3">
+    <div class="col-3 px-4 py-3" *ngIf="isLogged == false">
         <app-login></app-login>
     </div>
 </div>
