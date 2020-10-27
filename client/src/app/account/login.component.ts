@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+import { AlertsService } from 'angular-alert-module';
 
 import { AccountService} from '../services/account.service';
 
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private alerts: AlertsService
 ) { }
 
 ngOnInit() {
@@ -45,17 +47,14 @@ onSubmit() {
         .pipe(first())
         .subscribe({
             next: () => {
-                // pega a URL de retorno ou seta a Home
-                //const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/treino/create';
                 this.loading = false;
                 this.router.navigateByUrl('');
             },
             error: error => {
+                this.alerts.setMessage("Usuário não encontrado. Retente.", 'error');
+                //this.alerts.setMessage(error, 'error'); TODO A mensagem do erro já chega nesse parametro. Coletar ela para aparecer na mensagem em tela
                 this.loading = false;
             }
         });
+    }
 }
-
-}
-//user	[{"_id":"5f8c4854bf3f4b0416f5f5e0","firstname":"Aluno","lastname":"Teste","document":"A1","type":"Aluno","username":"a.a","password":"aa","status":"Ativo","token":"","createdAt":"2020-10-18T13:51:16.485Z","__v":0}]
-//user	[{"_id":"5f949ebe02c57027248c4c7d","firstname":"Staff","lastname":"Teste","document":"S1","type":"Staff","username":"s.s","password":"ss","status":"Ativo","token":"","createdAt":"2020-10-24T21:38:06.447Z","__v":0}]
