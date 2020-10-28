@@ -36,6 +36,10 @@ const routes: Routes = [
     component: ListTreinoComponent
   },
   {
+    path: 'create/treino', 
+    component: CreateTreinoComponent
+  },
+  {
     path: 'create/student', 
     component: CreateAlunoComponent
   },

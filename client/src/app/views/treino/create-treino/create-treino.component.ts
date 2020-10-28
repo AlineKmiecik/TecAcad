@@ -31,12 +31,30 @@ export class CreateTreinoComponent implements OnInit {
       this.students = this.userService.listStudents();
   }
 
-  Treino: Treino = {
-    date: new Date(),
+  treino: Treino = {
+    date: new Date,
     student: new User,
-    teacher: new User,
+    teacher: this.accountService.userValue,
     activities: [new Atividade],
     concluded: false
+  }
+
+  activities: Atividade[];
+  activitie: Atividade = {
+    name: '',
+    description: '',
+    concluded: false,
+    price: 99
+    }
+
+  addActivitie(){
+    let activ: Atividade = {
+      name: this.activitie.name,
+      description: this.activitie.description,
+      concluded: false,
+      price: 99
+      }
+    this.treino.activities.push(activ);
   }
 
   ngOnInit(): void {
@@ -44,7 +62,7 @@ export class CreateTreinoComponent implements OnInit {
 
 
   create(): void {
-    this.service.create(this.Treino).subscribe((Treino) => {
+    this.service.create(this.treino).subscribe((Treino) => {
     });
   }
 

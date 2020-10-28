@@ -40,6 +40,10 @@ export class ListTreinoComponent implements OnInit {
     });
   }
 
+  cadastrarTreino(): void{
+    this.router.navigate(['create/treino']);
+  }
+
   atividades: Atividade[] = [];
   openDetailsModal(detailsModal, atividade) { 
     this.atividades = atividade;
