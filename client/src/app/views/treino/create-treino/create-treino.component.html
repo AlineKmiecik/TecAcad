@@ -1,12 +1,10 @@
 <app-navbar></app-navbar>
 <div class="m-5">
-
     <div class="row my-3">
         <div class="col-10">
             <h1>Cadastrar Treino</h1>
         </div>
     </div>
-
     <div class="row">
         <div class="col-6 px-4 py-3">
             <form class="px-4 py-3 border" id="form-create-treino">
@@ -15,59 +13,48 @@
                     <input type="date" class="form-control" placeholder="" name="Data_Treino" [(ngModel)]="treino.date" />
                 </div>
                 <div class="form-group">
-                    <label for="form-create-treino">Aluno</label><br>
-                    <select class="form-control" name="students" id="students" form="form-create-treino" [(ngModel)]="treino.student" *ngFor="let student of students">
-                        <option value={{ student._id }}>{{ student.firstname }}</option> <!-- TODO Nao funciona-->
-                      </select>
-                </div>
+                    <form [formGroup]="contactForm">
+                        <label for="form-create-treino">Aluno</label><br>
 
-                <div>
-                    <label>Nome Ativ</label><br>
-                    <input type="text" class="form-control" placeholder="" name="Cpf_Aluno" [(ngModel)]="activitie.name" /> <br>
+                        <select formControlName="student">
+                            <option [ngValue]="null" disabled>Selecione o aluno...</option>
+                            <option *ngFor="let student of students" [ngValue]="student">{{student.firstname}}</option>
+                        </select>
+                    </form>
                 </div>
                 <div>
-                    <label>Desc</label><br>
-                    <input type="text" class="form-control" placeholder="" name="Cpf_Aluno" [(ngModel)]="activitie.description" /> <br>
+                    <label>Nome da Atividade</label><br>
+                    <input type="text" class="form-control" placeholder="Digite um nome para a atividade..." name="Cpf_Aluno" [(ngModel)]="activitie.name" /> <br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Descrição da Atividade</label>
+                    <textarea class="form-control" id="activitie-description" name="activitie-description" rows="6" [(ngModel)]="activitie.description" placeholder="Digite os detalhes da atividade..."></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary" (click)="addActivitie()">Add Ativ</button>
-
-
-
-
-
-
                 <button type="submit" class="btn btn-primary" (click)="create()">Cadastrar</button>
-                <button class="btn btn-outline-primary" (click)="open(studentsList)">Aluno</button>
-
+                <button type="submit" class="btn btn-secondary" (click)="backClicked()">Voltar</button>
             </form>
+        </div>
+        <div class="col-6 px-4 py-3">
+            <div class="px-4 py-3 border" id="activities-added">
+                <div>
+                    <label>Atividades adicionadas:</label>
+                </div>
+                <div class="border" *ngFor="let activitie_added of activities">
+                    <div>
+                        <label>Nome da Atividade:</label><br>
+                        <label> {{ activitie_added.name }} </label><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Descrição da Atividade:</label><br>
+                        <label> {{ activitie_added.description }} </label><br>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-9">
         </div>
     </div>
 </div>
-
-<ng-template #studentsList let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">
-            Alunos Matriculados
-        </h4>
-    </div>
-    <div class="modal-body">
-        <tr *ngFor="let user of students">
-            <th scope="row"> - </th>
-            <td>{{ user.firstname }}</td>
-            <td>
-                <button type="button" class="btn btn-outline-primary" (click)="setStudent(user)"> 
-                    Selecionar 
-                </button>
-            </td>
-        </tr>
-    </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-outline-primary" (click)="modal.close()"> 
-            Fechar 
-        </button>
-    </div>
-</ng-template>
 
 <app-footer></app-footer>

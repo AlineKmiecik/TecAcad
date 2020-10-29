@@ -9,6 +9,7 @@ import { TreinoService } from './../../../services/treino.service';
 import { Atividade } from './../../../models/Atividade';
 import { User } from './../../../models/User';
 import { UserService } from '../../../services/user.service';
+import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-list-treino',
@@ -18,6 +19,7 @@ import { UserService } from '../../../services/user.service';
 export class ListTreinoComponent implements OnInit {
 
   treinos: Treino[] = [];
+  treino: Treino;
   isAluno: boolean;
   isProfessor: boolean;
   isStaff: boolean;
@@ -28,7 +30,8 @@ export class ListTreinoComponent implements OnInit {
     private treinoService: TreinoService,
     private modalService: NgbModal,
     private userService: UserService,
-    private accountService: AccountService) {
+    private accountService: AccountService,
+    private alerts: AlertsService) {
       this.isAluno = this.accountService.isAluno;
       this.isProfessor = this.accountService.isProfessor;
       this.isStaff= this.accountService.isStaff;
@@ -45,18 +48,40 @@ export class ListTreinoComponent implements OnInit {
   }
 
   atividades: Atividade[] = [];
-  openDetailsModal(detailsModal, atividade) { 
-    this.atividades = atividade;
-    this.modalService.open(detailsModal, atividade);
+  openDetailsModal(detailsModal, treino) { 
+    this.atividades = treino.activities;
+    //this.treino = treino;
+    this.modalService.open(detailsModal, treino.activities);
   } 
   
   totalPrice: Number;
   openPriceModal(priceModal, id) {
     this.treinoService.listPriceByTrainingId(id).subscribe((price) => {
-      console.log("Price: " + price)
       this.totalPrice = price;
     });
     this.modalService.open(priceModal, id);
-  } 
+  }
+
+  updateTraining(treino, id){
+    this.treinoService.update(treino, id).subscribe((training => {
+      this.alerts.setMessage('Treino atualizado com sucesso!','success');
+    }))
+  }
+
+  deleteTraining(id): void{
+      this.treinoService.delete(id).subscribe((training) => {
+      this.alerts.setMessage('Treino apagado com sucesso!','success');
+      this.redirect();
+    });
+  }
+
+  async redirect(){
+    await this.delay(2000)
+    location.reload();
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
 
 }

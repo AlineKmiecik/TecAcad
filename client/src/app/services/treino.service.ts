@@ -20,6 +20,14 @@ export class TreinoService {
     return this.http.post<Treino>(`${environment.apiUrl}/cadastro/treino`, Treino);
   }
 
+  delete(id: String): Observable<Treino>{
+    return this.http.delete<Treino>(`${environment.apiUrl}/cadastro/treino/apagar/${id}`);
+  }
+
+  update(treino: Treino,  id: String): Observable<Treino>{
+    return this.http.post<Treino>(`${environment.apiUrl}/cadastro/treino/update/${id}`, treino);
+}
+
   listPriceByTrainingId(id: String): Observable<Number>{
     return this.http.get<Number>(`${environment.apiUrl}/lista/treino/price/${id}`);
   }

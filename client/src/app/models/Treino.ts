@@ -6,7 +6,7 @@ export class Treino {
     date: Date;
     student: User;
     teacher: User;
-    activities: [Atividade];
+    activities: Atividade[];
     concluded: boolean;
     createdAt?: Date;
   }

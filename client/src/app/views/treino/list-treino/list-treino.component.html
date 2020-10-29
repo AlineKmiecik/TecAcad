@@ -4,7 +4,7 @@
         <div class="col-10">
             <h1>Listar Treinos</h1>
         </div>
-        <div class="col-2">
+        <div *ngIf="isProfessor == true" class="col-2">
             <button class="btn btn-outline-primary" (click)="cadastrarTreino()"> 
         Novo Treino 
       </button>
@@ -19,6 +19,7 @@
                     <th scope="col">Professor</th>
                     <th scope="col">Data Treino</th>
                     <th scope="col">Atividades</th>
+                    <th scope="col">Apagar Treino</th>
                     <th *ngIf="isStaff == true" scope="col">Valor</th>
                 </tr>
             </thead>
@@ -29,14 +30,13 @@
                     <td>{{ treino.teacher.firstname }}</td>
                     <td>{{ treino.date| date: "dd/MM/yyyy"}}</td>
                     <td>
-                        <button class="btn btn-outline-primary" (click)="openDetailsModal(detailsModal, treino.activities)"> 
-                            Detalhes 
-                        </button>
+                        <button class="btn btn-outline-primary" (click)="openDetailsModal(detailsModal, treino)">Detalhes</button>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-outline-danger" (click)="deleteTraining(treino._id)">Apagar</button>
                     </td>
                     <td *ngIf="isStaff == true">
-                        <button class="btn btn-outline-primary" (click)="openPriceModal(priceModal, treino._id)"> 
-                            Valor
-                        </button>
+                        <button class="btn btn-outline-primary" (click)="openPriceModal(priceModal, treino._id)">Valor</button>
                     </td>
                 </tr>
             </tbody>
@@ -50,7 +50,6 @@
             Detalhes da atividade
         </h4>
     </div>
-
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -63,16 +62,20 @@
             <tr *ngFor="let atividade of atividades">
                 <td>{{ atividade.name }}</td>
                 <td>{{ atividade.description }}</td>
-                <td>{{ atividade.concluded }}</td>
+                <td>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="true" id="training-done" [(ngModel)]="atividade.concluded">
+                        <label class="form-check-label" for="training-done">
+                          Feito!
+                        </label>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>
-
-
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-primary" (click)="modal.close()"> 
-            Fechar 
-        </button>
+        <button type="button" class="btn btn-primary" (click)="updateTraining(treino._id)">Salvar</button>
+        <button type="button" class="btn btn-outline-secondary" (click)="modal.close()">Fechar</button>
     </div>
 </ng-template>
 
