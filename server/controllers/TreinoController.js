@@ -19,16 +19,31 @@ class TreinoController {
         res.status(200).json(result);
     }
 
-    async getById(req, res) {
-        let result = await treino.
-        findById(req.params.id).
-        populate('student').
-        populate('teacher');
+    async getByIdAndType(req, res) {
+        let result;
+
+        if (req.params.type == "Aluno") {
+            result = await treino.
+            find({ student: req.params.id }).
+            populate('student').
+            populate('teacher');
+        } else if (req.params.type == "Professor") {
+            result = await treino.
+            find({ teacher: req.params.id }).
+            populate('student').
+            populate('teacher');
+        } else {
+            result = await treino.
+            find().
+            populate('student').
+            populate('teacher');
+        }
+
         res.status(200).json(result);
     }
 
     async update(req, res) {
-        let result = await treino.updateOne({ _id: req.params.id }, req.body);
+        let result = await treino.updateOne({ _id: req.body._id }, req.body);
         res.status(200).json(result);
     }
 

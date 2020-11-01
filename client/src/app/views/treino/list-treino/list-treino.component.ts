@@ -10,6 +10,7 @@ import { Atividade } from './../../../models/Atividade';
 import { User } from './../../../models/User';
 import { UserService } from '../../../services/user.service';
 import { AlertsService } from 'angular-alert-module';
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-list-treino',
@@ -38,7 +39,9 @@ export class ListTreinoComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.treinoService.list().subscribe((lista) => {
+    let id = this.accountService.userValue._id;
+    let type = this.accountService.userValue.type;
+    this.treinoService.listByIdAndType(id, type).subscribe((lista) => {
       this.treinos = lista;
     });
   }
@@ -48,9 +51,9 @@ export class ListTreinoComponent implements OnInit {
   }
 
   atividades: Atividade[] = [];
-  openDetailsModal(detailsModal, treino) { 
+  openDetailsModal(detailsModal, treino) {
     this.atividades = treino.activities;
-    //this.treino = treino;
+    this.treino = treino;
     this.modalService.open(detailsModal, treino.activities);
   } 
   
@@ -62,10 +65,26 @@ export class ListTreinoComponent implements OnInit {
     this.modalService.open(priceModal, id);
   }
 
-  updateTraining(treino, id){
-    this.treinoService.update(treino, id).subscribe((training => {
+  updateTraining(){
+    this.treino.concluded = this.attTrainingStatus();
+    console.log("treino concluido: " + this.treino.concluded)
+    this.treinoService.update(this.treino).subscribe((training => {
       this.alerts.setMessage('Treino atualizado com sucesso!','success');
+      this.modalService.dismissAll();
     }))
+  }
+
+  attTrainingStatus(): boolean{
+    let ret = true;
+    this.treino.activities.forEach(activitie => {
+      console.log("AtivConcluded: " + activitie.concluded)
+      if(!activitie.concluded){
+        console.log("Return false")
+        ret = false;
+      }
+    });
+    console.log("Return: " + ret)
+    return ret;
   }
 
   deleteTraining(id): void{

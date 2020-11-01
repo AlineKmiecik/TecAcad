@@ -15,27 +15,36 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Concluído</th>
                     <th scope="col">Aluno</th>
                     <th scope="col">Professor</th>
                     <th scope="col">Data Treino</th>
                     <th scope="col">Atividades</th>
-                    <th scope="col">Apagar Treino</th>
-                    <th *ngIf="isStaff == true" scope="col">Valor</th>
+                    <th *ngIf="isProfessor == true" scope="col">Apagar Treino</th>
+                    <th *ngIf="isProfessor == false" scope="col">Valor</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let treino of treinos">
                     <th scope="row">1</th>
+                    <td *ngIf="treino.concluded == true;else else_content">
+                        <div class="fa fa-check-circle"></div>
+                    </td>
+                    <ng-template #else_content>
+                        <td>
+                            <div class="fa fa-circle-o"></div>
+                        </td>
+                    </ng-template>
                     <td>{{ treino.student.firstname }}</td>
                     <td>{{ treino.teacher.firstname }}</td>
                     <td>{{ treino.date| date: "dd/MM/yyyy"}}</td>
                     <td>
                         <button class="btn btn-outline-primary" (click)="openDetailsModal(detailsModal, treino)">Detalhes</button>
                     </td>
-                    <td>
+                    <td *ngIf="isProfessor == true">
                         <button type="submit" class="btn btn-outline-danger" (click)="deleteTraining(treino._id)">Apagar</button>
                     </td>
-                    <td *ngIf="isStaff == true">
+                    <td *ngIf="isProfessor == false">
                         <button class="btn btn-outline-primary" (click)="openPriceModal(priceModal, treino._id)">Valor</button>
                     </td>
                 </tr>
@@ -64,7 +73,10 @@
                 <td>{{ atividade.description }}</td>
                 <td>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="true" id="training-done" [(ngModel)]="atividade.concluded">
+                        <input *ngIf="isStaff == false" class="form-check-input" type="checkbox" value="true" id="training-done" [(ngModel)]="atividade.concluded">
+                        <!--TODO trocar esses dois inputs por apenas um com controle da propriedade 'disabled' atraves de uma variavel-->
+                        <input *ngIf="isStaff == true" class="form-check-input" type="checkbox" value="true" id="training-done" [(ngModel)]="atividade.concluded" disabled>
+
                         <label class="form-check-label" for="training-done">
                           Feito!
                         </label>
@@ -74,7 +86,10 @@
         </tbody>
     </table>
     <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="updateTraining(treino._id)">Salvar</button>
+        <button *ngIf="isStaff == false" type="button" class="btn btn-primary" (click)="updateTraining()">Salvar</button>
+        <!--TODO trocar esses dois botoes por apenas um com controle da propriedade 'disabled' atraves de uma variavel-->
+        <button *ngIf="isStaff == true" type="button" class="btn btn-primary" disabled>Salvar</button>
+
         <button type="button" class="btn btn-outline-secondary" (click)="modal.close()">Fechar</button>
     </div>
 </ng-template>

@@ -15,6 +15,10 @@ export class TreinoService {
   list(): Observable<Treino[]> {
     return this.http.get<Treino[]>(`${environment.apiUrl}/lista/treino`);
   }
+  
+  listByIdAndType(id: String, type: String): Observable<Treino[]>{
+    return this.http.get<Treino[]>(`${environment.apiUrl}/lista/treino/${id}/${type}`);
+  }
 
   create(Treino: Treino): Observable<Treino>{
     return this.http.post<Treino>(`${environment.apiUrl}/cadastro/treino`, Treino);
@@ -24,12 +28,12 @@ export class TreinoService {
     return this.http.delete<Treino>(`${environment.apiUrl}/cadastro/treino/apagar/${id}`);
   }
 
-  update(treino: Treino,  id: String): Observable<Treino>{
-    return this.http.post<Treino>(`${environment.apiUrl}/cadastro/treino/update/${id}`, treino);
+  update(treino: Treino): Observable<Treino>{
+    return this.http.post<Treino>(`${environment.apiUrl}/cadastro/treino/update`, treino);
 }
 
   listPriceByTrainingId(id: String): Observable<Number>{
-    return this.http.get<Number>(`${environment.apiUrl}/lista/treino/price/${id}`);
+    return this.http.get<Number>(`${environment.apiUrl}/lista/treino/price//${id}`);
   }
 
 }
