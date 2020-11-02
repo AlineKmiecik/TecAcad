@@ -45,6 +45,7 @@ router.delete("/cadastro/treino/apagar/:id", TreinoController.delete);
 router.get("/lista/mensalidade", MensalidadeController.get);
 router.get("/lista/mensalidade/:id", MensalidadeController.getById);
 router.post("/cadastro/mensalidade", MensalidadeController.store);
+router.get("/cadastro/mensalidade/generate", MensalidadeController.generate);
 router.post("/cadastro/mensalidade/update/:id", MensalidadeController.update);
 router.delete("/cadastro/mensalidade/apagar/:id", MensalidadeController.delete);
 
