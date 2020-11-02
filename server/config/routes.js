@@ -48,5 +48,6 @@ router.post("/cadastro/mensalidade", MensalidadeController.store);
 router.get("/cadastro/mensalidade/generate", MensalidadeController.generate);
 router.post("/cadastro/mensalidade/update/:id", MensalidadeController.update);
 router.delete("/cadastro/mensalidade/apagar/:id", MensalidadeController.delete);
+router.delete("/cadastro/mensalidade/apagar//all", MensalidadeController.deleteAll);
 
 module.exports = router;

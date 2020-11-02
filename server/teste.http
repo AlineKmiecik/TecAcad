@@ -80,6 +80,7 @@ GET http://localhost:1234/lista/usuario
 
 ### LISTAR USER POR TIPO
 GET http://localhost:1234/lista/usuario/Aluno
+
 ###
 GET http://localhost:1234/lista/usuario/Professor
 ###
@@ -144,41 +145,48 @@ Content-Type: application/json
 ### LISTAR TREINO
 GET http://localhost:1234/lista/treino
 
-### BUSCAR TREINO POR ID
-GET http://localhost:1234/lista/treino/5f94a268fedd482c85a2dc9f
+### BUSCAR TREINO POR ID e TIPO do Usuario
+GET http://localhost:1234/lista/treino/5f95b5c1116f2b128c7asc98/Alunod
 
 ### BUSCAR PRECO DO TREINO POR ID
 GET http://localhost:1234/lista/treino/price/5f95b657116f2b128c7abca0
 
 ### UPDATE TREINO
-POST http://localhost:1234/cadastro/treino/update/5f94a40f585d242e4fadf49a
+POST http://localhost:1234/cadastro/treino/update
 Content-Type: application/json
 
 {
+    "concluded": false,
+    "_id": "5f9a11fcadc49cf5aa3a9f21",
     "date": "2020-10-24",
-    "student": "5f8c4854bf3f4b0416f5f5e0",
-    "teacher": "5f8c4873bf3f4b0416f5f5e1",
+    "student": "5f95b5c1116f2b128c7abc98",
+    "teacher": "5f95b5c1116f2b128c7abc9b",
     "activities": [
         {
-        "name": "3AtividadeTeste",
-        "description": "Descricao da atividade 3",
         "concluded": false,
-        "price": 30
-        },
-        {
-        "name": "4AtividadeTeste",
-        "description": "Descricao da atividade 4",
+        "price": 51,
+        "_id": "5f9a11fcadc49cf5aa3a9f22",
+        "name": "MusculaçãoUp",
+        "description": "10 Barras\n10 Burpee",
+        "createdAt": "2020-10-29T00:51:08.866Z"
+      },
+      {
         "concluded": false,
-        "price": 40
-        }
-    ],
-
-    "concluded": false
+        "price": 92,
+        "_id": "5f9a11fcadc49cf5aa3a9f23",
+        "name": "CorridaUp",
+        "description": "10min Esteira",
+        "createdAt": "2020-10-29T00:51:08.866Z"
+      }
+    ]
 }
+
+### Buscar PRECO do TREINO
+GET http://localhost:1234/lista/treino/price//5f9a11fcadc49cf5aa3a9f21
 
 
 ### APAGAR TREINO
-DELETE http://localhost:1234/cadastro/treino/apagar/5f94a268fedd482c85a2dc9f
+DELETE http://localhost:1234/cadastro/treino/apagar/5fa01f8b5af8c9c5a96b323e
 
 
 
@@ -189,31 +197,33 @@ POST http://localhost:1234/cadastro/mensalidade
 Content-Type: application/json
 
 {
-    "date": "2020-10-19",
+    "dueDate": "2020-10-19",
     "student": "5f8c4854bf3f4b0416f5f5e0",
-    "price": 5,
-    "payed": false
+    "price": 5
 }
 
 ### LISTAR MENSALIDADE
 GET http://localhost:1234/lista/mensalidade
 
+### GERAR MENSALIDADES
+GET http://localhost:1234/cadastro/mensalidade/generate
+
 ### BUSCAR MENSALIDADE POR ID
-GET http://localhost:1234/lista/mensalidade/5f8cb63f9e4e41062826a61f
+GET http://localhost:1234/lista/mensalidade/5fa07e6a0048d2391121bffd
 
 ### UPDATE MENSALIDADE
-POST http://localhost:1234/cadastro/mensalidade/update/5f8cb63f9e4e41062826a61f
+POST http://localhost:1234/cadastro/mensalidade/update/5fa0869bd916c745936ffbc8
 Content-Type: application/json
 
 {
-    "date": "2021-10-19",
-    "student": "5f8c4854bf3f4b0416f5f5e0",
-    "price": 5,
-    "payed": false
+    "datePaid": "2020-10-22"
 }
 
 ### APAGAR MENSALIDADE
-DELETE http://localhost:1234/cadastro/mensalidade/apagar/5f8cb63f9e4e41062826a61f
+DELETE http://localhost:1234/cadastro/mensalidade/apagar/5fa07ec561796239b31a1992
+
+### APAGAR >>TODAS<< MENSALIDADES
+DELETE http://localhost:1234/cadastro/mensalidade/apagar//all
 
 
 //----------------------------------------------------------------------------------------------------------------

@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 
 const mensalidade = new mongoose.Schema({
-    date: {
+    dueDate: {
         type: Date,
-        required: [true, "O campo Data é obrigatório"]
+        required: [true, "O campo Data de Vencimento é obrigatório"]
     },
 
     student: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        require: [true, "Campo Aluno é obrigatório"]
     },
 
     price: {
@@ -17,9 +18,8 @@ const mensalidade = new mongoose.Schema({
         min: [0, "Valor mínimo da mensalidade é de 0 reais"]
     },
 
-    payed: {
-        type: Boolean,
-        default: false
+    datePaid: {
+        type: Date
     },
 
     createdAt: { type: Date, default: Date.now }
