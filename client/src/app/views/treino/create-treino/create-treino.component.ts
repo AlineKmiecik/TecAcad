@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Location } from '@angular/common';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { AlertsService } from 'angular-alert-module';
+
 import { Treino } from 'src/app/models/Treino';
 import { TreinoService } from 'src/app/services/treino.service';
 import { User } from '../../../models/User';
 import { Atividade } from '../../../models/Atividade';
 import { AccountService } from '../../../services/account.service';
 import { UserService } from '../../../services/user.service';
-import { AlertsService } from 'angular-alert-module';
 
 @Component({
   selector: 'app-create-treino',
@@ -29,7 +29,6 @@ export class CreateTreinoComponent implements OnInit {
     private service: TreinoService,
     private accountService: AccountService,
     private userService: UserService,
-    private modalService: NgbModal,
     private formBuilder: FormBuilder,
     private location: Location,
     private alerts: AlertsService) {

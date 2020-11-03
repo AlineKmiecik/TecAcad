@@ -1,16 +1,13 @@
 import { Component, OnInit, NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser'
 import { Router } from "@angular/router";
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AlertsService } from 'angular-alert-module';
+
 import { AccountService } from '../../../services/account.service';
-import { Observable, Subject } from 'rxjs';
 import { Treino } from './../../../models/Treino';
 import { TreinoService } from './../../../services/treino.service';
 import { Atividade } from './../../../models/Atividade';
-import { User } from './../../../models/User';
 import { UserService } from '../../../services/user.service';
-import { AlertsService } from 'angular-alert-module';
-import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-list-treino',
@@ -29,7 +26,6 @@ export class ListTreinoComponent implements OnInit {
   constructor(
     private router: Router,
     private treinoService: TreinoService,
-    private userService: UserService,
     private accountService: AccountService,
     private modalService: NgbModal,
     private alerts: AlertsService) {

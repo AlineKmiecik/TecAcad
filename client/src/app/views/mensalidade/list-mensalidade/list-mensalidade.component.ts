@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
 import { AlertsService } from 'angular-alert-module';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { Mensalidade } from './../../../models/Mensalidade';
 import { MensalidadeService } from './../../../services/mensalidade.service';
 import { AccountService } from '../../../services/account.service';
@@ -20,7 +20,6 @@ export class ListMensalidadeComponent implements OnInit {
   mensalidades: Mensalidade[] = [];
 
   constructor(
-    private router: Router,
     private accountService: AccountService,
     private mensalidadeService: MensalidadeService,
     private modalService: NgbModal,
@@ -31,12 +30,12 @@ export class ListMensalidadeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loggedUser = this.accountService.userValue;
+    
     if(this.isStaff){
       this.mensalidadeService.list().subscribe((lista) => {
         this.mensalidades = lista; 
       });
-    }
-    else {
+    } else {
         this.mensalidadeService.listByUserId(this.loggedUser._id).subscribe((lista) => {
         this.mensalidades = lista;
         });
@@ -45,8 +44,10 @@ export class ListMensalidadeComponent implements OnInit {
   
   billingsGenerate(): void{
     this.mensalidadeService.generate().subscribe((lista) => {
-      this.mensalidades = lista; 
+      this.mensalidades = lista;
     });
+    this.alerts.setMessage('Mensalidades geradas com sucesso!','success');
+    this.redirect();
   }
   
   payBill(bill): void{
@@ -56,6 +57,15 @@ export class ListMensalidadeComponent implements OnInit {
       this.alerts.setMessage('Mensalidade paga com sucesso!','success');
       this.modalService.dismissAll();
     }))
+  }
+
+  async redirect(){
+    await this.delay(2000)
+    location.reload();
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
 }

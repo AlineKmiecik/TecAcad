@@ -23,9 +23,6 @@ import { ListProfessorComponent } from './views/users/professor/list-professor/l
 import { CreateProfessorComponent } from './views/users/professor/create-professor/create-professor.component';
 import { UpdateProfessorComponent } from './views/users/professor/update-professor/update-professor.component';
 
-import { ListAtividadeComponent } from './views/atividade/list-atividade/list-atividade.component';
-import { CreateAtividadeComponent } from './views/atividade/create-atividade/create-atividade.component';
-
 import { ListMensalidadeComponent } from './views/mensalidade/list-mensalidade/list-mensalidade.component';
 
 import { ListTreinoComponent } from './views/treino/list-treino/list-treino.component';
@@ -47,9 +44,6 @@ import { CreateTreinoComponent } from './views/treino/create-treino/create-trein
     ListProfessorComponent,
     CreateProfessorComponent,
     UpdateProfessorComponent,
-
-    ListAtividadeComponent,
-    CreateAtividadeComponent,
 
     ListMensalidadeComponent,
 

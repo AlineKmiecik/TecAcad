@@ -94,8 +94,6 @@ class MensalidadeController {
 
             })
 
-            console.log("Mensalidades geradas!")
-
         } catch (error) {
             res.status(500).json(error)
         }

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+
+import { error } from '@angular/compiler/src/util';
 
 import { environment } from '../../environments/environment';
 import { User } from '../models/User';
-import { error } from '@angular/compiler/src/util';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -83,8 +84,6 @@ export class AccountService {
                     const user = { ...this.userValue, ...params };
                     localStorage.setItem('user', JSON.stringify(user));
 
-                    // publica o update do user aos inscritos
-                    //this.userSubject.next(user);
                     this.user = user;
                 }
                 return x;
