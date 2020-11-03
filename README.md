@@ -1,6 +1,13 @@
 # TecAcad
 Projeto da equipe 6 - Dev Web 2 - Professor Diogo Deconto
 
+Na pasta client, execute:
+- npm install bootstrap@latest --save
+- npm install jquery@latest --save
+- ng add @ng-bootstrap/ng-bootstrap
+- npm install angular-alert-module --save
+- npm install angular-alert-module
+
 Para iniciar a base de dados, é necessário criar um usuário do tipo STAFF. Com ele você poderá realizar todos os outros procedimentos através da tela do sistema.
 Para isso, siga o seguinte:
 
