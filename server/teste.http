@@ -5,13 +5,13 @@ POST http://localhost:1234/cadastro/usuario
 Content-Type: application/json
 
 {
-    "firstname": "APA",
-    "lastname": "APA",
-    "document": "444",
-    "type": "Aluno",
-    "username": "apa",
-    "password": "password",
-    "status": "Inativo",
+    "firstname": "Macaulay",
+    "lastname": "Culkin",
+    "document": "463.843.440-17",
+    "type": "Staff",
+    "username": "macaulay.culkin",
+    "password": "homeAlone",
+    "status": "Ativo",
     "token": ""
 }
 
@@ -87,7 +87,7 @@ GET http://localhost:1234/lista/usuario/Professor
 GET http://localhost:1234/lista/usuario/Staff
 
 ### BUSCAR USER POR Documento
-GET http://localhost:1234/lista/usuario///16071022932
+GET http://localhost:1234/lista/usuario///463.843.440-17
 
 ### BUSCAR USER POR ID
 GET http://localhost:1234/lista/usuario//5f95ccfbfd82d14bc491ba48
@@ -98,7 +98,7 @@ Content-Type: application/json
 
 {
     "firstname": "Douglas",
-    "lastname": "Gorges Updated",
+    "lastname": "Gorges",
     "document": "16071022932",
     "type": "Aluno",
     "username": "douglas.gorges",
@@ -108,7 +108,7 @@ Content-Type: application/json
 }
 
 ### APAGAR USER by document
-GET http://localhost:1234/cadastro/usuario/apagar/333
+GET http://localhost:1234/cadastro/usuario/apagar/463.843.440-17
 
 ### APAGAR USER by id
 DELETE http://localhost:1234/cadastro/usuario/apagar//5f95ccfbfd82d14bc491ba48
@@ -208,15 +208,19 @@ GET http://localhost:1234/lista/mensalidade
 ### GERAR MENSALIDADES
 GET http://localhost:1234/cadastro/mensalidade/generate
 
-### BUSCAR MENSALIDADE POR ID
-GET http://localhost:1234/lista/mensalidade/5fa07e6a0048d2391121bffd
+### BUSCAR MENSALIDADE POR USER.ID
+GET http://localhost:1234/lista/mensalidade/5f95b5c1116f2b128c7abc98
 
 ### UPDATE MENSALIDADE
-POST http://localhost:1234/cadastro/mensalidade/update/5fa0869bd916c745936ffbc8
+POST http://localhost:1234/cadastro/mensalidade/update
 Content-Type: application/json
 
 {
-    "datePaid": "2020-10-22"
+    "_id": "5fa0919508e9a555417fb8ee",
+    "dueDate": "2020-12-11T02:59:59.000Z",
+    "student": "5f95b5c1116f2b128c7abc98",
+    "price": 413,
+    "datePaid": "2025-10-22"
 }
 
 ### APAGAR MENSALIDADE

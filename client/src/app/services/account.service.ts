@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../../environments/environment';
 import { User } from '../models/User';
+import { error } from '@angular/compiler/src/util';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -44,10 +45,14 @@ export class AccountService {
     login(username, password): Observable<User> {
         return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
         .pipe(map(user => {
-            localStorage.setItem('user', JSON.stringify(user));
-            this.user = user;
-            location.reload();
-            return user;
+            if(user.status == "Ativo"){
+                localStorage.setItem('user', JSON.stringify(user));
+                this.user = user;
+                location.reload();
+                return user;
+            } else {
+                return error("Usuário inativo.");
+            }
         }));
     }
 

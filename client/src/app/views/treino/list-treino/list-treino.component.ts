@@ -29,9 +29,9 @@ export class ListTreinoComponent implements OnInit {
   constructor(
     private router: Router,
     private treinoService: TreinoService,
-    private modalService: NgbModal,
     private userService: UserService,
     private accountService: AccountService,
+    private modalService: NgbModal,
     private alerts: AlertsService) {
       this.isAluno = this.accountService.isAluno;
       this.isProfessor = this.accountService.isProfessor;
@@ -67,7 +67,6 @@ export class ListTreinoComponent implements OnInit {
 
   updateTraining(){
     this.treino.concluded = this.attTrainingStatus();
-    console.log("treino concluido: " + this.treino.concluded)
     this.treinoService.update(this.treino).subscribe((training => {
       this.alerts.setMessage('Treino atualizado com sucesso!','success');
       this.modalService.dismissAll();
@@ -77,13 +76,10 @@ export class ListTreinoComponent implements OnInit {
   attTrainingStatus(): boolean{
     let ret = true;
     this.treino.activities.forEach(activitie => {
-      console.log("AtivConcluded: " + activitie.concluded)
       if(!activitie.concluded){
-        console.log("Return false")
         ret = false;
       }
     });
-    console.log("Return: " + ret)
     return ret;
   }
 

@@ -30,7 +30,7 @@ export class TreinoService {
 
   update(treino: Treino): Observable<Treino>{
     return this.http.post<Treino>(`${environment.apiUrl}/cadastro/treino/update`, treino);
-}
+  }
 
   listPriceByTrainingId(id: String): Observable<Number>{
     return this.http.get<Number>(`${environment.apiUrl}/lista/treino/price//${id}`);

@@ -2,9 +2,9 @@ import { User } from "./User";
 
 export class Mensalidade {
     _id?: string;
-    date: Date;
+    dueDate: Date;
     student: User;
     price: number;
-    payed: boolean;
+    datePaid: Date;
     createdAt?: Date;
   }

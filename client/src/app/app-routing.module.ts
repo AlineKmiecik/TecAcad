@@ -64,7 +64,7 @@ const routes: Routes = [
     component: UpdateProfessorComponent
   },
   {
-    path: 'mensalidade/list', 
+    path: 'list/mensalidade', 
     component: ListMensalidadeComponent
   },
   

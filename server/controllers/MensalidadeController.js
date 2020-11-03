@@ -18,6 +18,8 @@ class MensalidadeController {
     async generate(req, res) {
         try {
 
+            await mensalidade.remove({}); //TODO Remover quando implementar o controle na gravação desse documento (detales no TODO abaixo)
+
             let currentDate = new Date;
             let currentMonth = currentDate.getMonth();
             let currentYear = currentDate.getFullYear();
@@ -75,14 +77,24 @@ class MensalidadeController {
                     .map(([k]) => k);
 
                 student.billings.forEach(bill => {
-                    mensalidade.create({ //TODO Validar se o documento já não existe ANTES de gravar no banco. Do jeito que está permite multiplicidade
+                    /*
+                    let exists = await mensalidade.exists({ TODO Validar se a mensalidade já não existe ANTES de gravar
+                        student: studentToBill,
+                        dueDate: dueDate
+                    })
+
+                    if (!exists) { */
+                    mensalidade.create({
                         "dueDate": dueDate,
                         "student": studentToBill,
                         "price": bill.price
                     });
+                    //  }
                 })
 
             })
+
+            console.log("Mensalidades geradas!")
 
         } catch (error) {
             res.status(500).json(error)
@@ -96,15 +108,20 @@ class MensalidadeController {
         res.status(200).json(result);
     }
 
-    async getById(req, res) {
-        let result = await mensalidade.
-        findById(req.params.id).
-        populate('student');
-        res.status(200).json(result);
-    }
+    async getByUserId(req, res) {
+            let result = await mensalidade.
+            find({ student: req.params.userId }).
+            populate('student');
+            res.status(200).json(result);
+        }
+        /*
+            async update(req, res) {
+                let result = await mensalidade.updateOne({ _id: req.params.id }, req.body);
+                res.status(200).json(result);
+            } */
 
     async update(req, res) {
-        let result = await mensalidade.updateOne({ _id: req.params.id }, req.body);
+        let result = await mensalidade.updateOne({ _id: req.body._id }, req.body);
         res.status(200).json(result);
     }
 

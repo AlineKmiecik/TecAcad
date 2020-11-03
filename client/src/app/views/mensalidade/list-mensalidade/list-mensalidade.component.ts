@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { AlertsService } from 'angular-alert-module';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Mensalidade } from './../../../models/Mensalidade';
 import { MensalidadeService } from './../../../services/mensalidade.service';
+import { AccountService } from '../../../services/account.service';
+import { User } from './../../../models/User';
 
 @Component({
   selector: 'app-list-mensalidade',
@@ -10,14 +14,48 @@ import { MensalidadeService } from './../../../services/mensalidade.service';
 })
 export class ListMensalidadeComponent implements OnInit {
 
-  Mensalidades: Mensalidade[] = [];
+  isStaff: boolean;
+  isStudent: boolean;
+  loggedUser: User;
+  mensalidades: Mensalidade[] = [];
 
-  constructor(private router: Router, private MensalidadeService: MensalidadeService) { }
+  constructor(
+    private router: Router,
+    private accountService: AccountService,
+    private mensalidadeService: MensalidadeService,
+    private modalService: NgbModal,
+    private alerts: AlertsService) {
+    this.isStaff = this.accountService.isStaff;
+    this.isStudent = this.accountService.isAluno;
+  }
 
   ngOnInit(): void {
-    this.MensalidadeService.list().subscribe((lista) => {
-      this.Mensalidades = lista; 
+    this.loggedUser = this.accountService.userValue;
+    if(this.isStaff){
+      this.mensalidadeService.list().subscribe((lista) => {
+        this.mensalidades = lista; 
+      });
+    }
+    else {
+        this.mensalidadeService.listByUserId(this.loggedUser._id).subscribe((lista) => {
+        this.mensalidades = lista;
+        });
+    }
+  }
+  
+  billingsGenerate(): void{
+    this.mensalidadeService.generate().subscribe((lista) => {
+      this.mensalidades = lista; 
     });
+  }
+  
+  payBill(bill): void{
+    let datePaid = new Date();
+    bill.datePaid = datePaid;
+    this.mensalidadeService.update(bill).subscribe((training => {
+      this.alerts.setMessage('Mensalidade paga com sucesso!','success');
+      this.modalService.dismissAll();
+    }))
   }
 
 }

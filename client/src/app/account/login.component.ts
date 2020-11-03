@@ -52,7 +52,7 @@ onSubmit() {
             },
             error: error => {
                 this.alerts.setMessage("Usuário não encontrado. Retente.", 'error');
-                //this.alerts.setMessage(error, 'error'); TODO A mensagem do erro já chega nesse parametro. Coletar ela para aparecer na mensagem em tela
+                //this.alerts.setMessage(error, 'error');// TODO A mensagem do erro já chega nesse parametro. Coletar ela para aparecer na mensagem em tela
                 this.loading = false;
             }
         });
